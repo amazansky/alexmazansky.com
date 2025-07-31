@@ -1,5 +1,5 @@
+import { getBlogPosts } from "app/posts/utils";
 import { baseUrl } from "app/sitemap";
-import { getBlogPosts } from "app/blog/utils";
 
 export async function GET() {
   let allBlogs = await getBlogPosts();
@@ -11,23 +11,28 @@ export async function GET() {
       }
       return 1;
     })
-    .map(
-      (post) =>
-        `<item>
+    .map((post) => {
+      const date = new Date(post.metadata.publishedAt);
+      const year = date.getFullYear();
+      const month = (date.getMonth() + 1).toString().padStart(2, "0");
+      const day = date.getDate().toString().padStart(2, "0");
+      const url = `${baseUrl}/posts/${year}/${month}/${day}/${post.slug}`;
+
+      return `<item>
           <title>${post.metadata.title}</title>
-          <link>${baseUrl}/blog/${post.slug}</link>
+          <link>${url}</link>
           <description>${post.metadata.summary || ""}</description>
           <pubDate>${new Date(
             post.metadata.publishedAt
           ).toUTCString()}</pubDate>
-        </item>`
-    )
+        </item>`;
+    })
     .join("\n");
 
   const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>
   <rss version="2.0">
     <channel>
-        <title>My Portfolio</title>
+        <title>Alex Mazansky</title>
         <link>${baseUrl}</link>
         <description>This is my portfolio RSS feed</description>
         ${itemsXml}

@@ -1,18 +1,41 @@
-import { notFound } from "next/navigation";
 import { CustomMDX } from "app/components/mdx";
-import { formatDate, getBlogPosts } from "app/blog/utils";
+import { formatDate, getBlogPosts } from "app/posts/utils";
 import { baseUrl } from "app/sitemap";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
   let posts = getBlogPosts();
 
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  return posts.map((post) => {
+    const date = new Date(post.metadata.publishedAt);
+    const year = date.getFullYear().toString();
+    const month = (date.getMonth() + 1).toString().padStart(2, "0");
+    const day = date.getDate().toString().padStart(2, "0");
+
+    return {
+      year,
+      month,
+      day,
+      slug: post.slug,
+    };
+  });
 }
 
 export function generateMetadata({ params }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+  let post = getBlogPosts().find((post) => {
+    const date = new Date(post.metadata.publishedAt);
+    const year = date.getFullYear().toString();
+    const month = (date.getMonth() + 1).toString().padStart(2, "0");
+    const day = date.getDate().toString().padStart(2, "0");
+
+    return (
+      post.slug === params.slug &&
+      year === params.year &&
+      month === params.month &&
+      day === params.day
+    );
+  });
+
   if (!post) {
     return;
   }
@@ -27,6 +50,11 @@ export function generateMetadata({ params }) {
     ? image
     : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
 
+  const date = new Date(post.metadata.publishedAt);
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  const day = date.getDate().toString().padStart(2, "0");
+
   return {
     title,
     description,
@@ -35,7 +63,7 @@ export function generateMetadata({ params }) {
       description,
       type: "article",
       publishedTime,
-      url: `${baseUrl}/blog/${post.slug}`,
+      url: `${baseUrl}/posts/${year}/${month}/${day}/${post.slug}`,
       images: [
         {
           url: ogImage,
@@ -52,11 +80,28 @@ export function generateMetadata({ params }) {
 }
 
 export default function Blog({ params }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+  let post = getBlogPosts().find((post) => {
+    const date = new Date(post.metadata.publishedAt);
+    const year = date.getFullYear().toString();
+    const month = (date.getMonth() + 1).toString().padStart(2, "0");
+    const day = date.getDate().toString().padStart(2, "0");
+
+    return (
+      post.slug === params.slug &&
+      year === params.year &&
+      month === params.month &&
+      day === params.day
+    );
+  });
 
   if (!post) {
     notFound();
   }
+
+  const date = new Date(post.metadata.publishedAt);
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  const day = date.getDate().toString().padStart(2, "0");
 
   return (
     <section>
@@ -74,10 +119,10 @@ export default function Blog({ params }) {
             image: post.metadata.image
               ? `${baseUrl}${post.metadata.image}`
               : `/og?title=${encodeURIComponent(post.metadata.title)}`,
-            url: `${baseUrl}/blog/${post.slug}`,
+            url: `${baseUrl}/posts/${year}/${month}/${day}/${post.slug}`,
             author: {
               "@type": "Person",
-              name: "My Portfolio",
+              name: "Alex Mazansky",
             },
           }),
         }}
