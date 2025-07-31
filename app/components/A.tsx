@@ -3,16 +3,18 @@ import Link from "next/link";
 interface AProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
   children: React.ReactNode;
+  forceExternal?: boolean;
 }
 
 export default function A({
   href,
   children,
   className = "",
+  forceExternal = false,
   ...props
 }: AProps) {
   // Check if it's an internal link
-  if (href.startsWith("/")) {
+  if (href.startsWith("/") && !forceExternal) {
     return (
       <Link
         href={href}
