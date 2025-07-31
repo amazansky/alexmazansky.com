@@ -1,3 +1,5 @@
+import A from "../components/A";
+
 export default function About() {
   return (
     <section>
@@ -33,9 +35,7 @@ export default function About() {
           <p>
             I invite you to explore this website to learn more about me and my
             work. If any of what you find seems interesting,{" "}
-            <a href="/contact" className="underline">
-              let's connect!
-            </a>
+            <A href="/contact">let's connect!</A>
           </p>
         </div>
 
@@ -48,40 +48,26 @@ export default function About() {
             <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-300">
               <li>
                 Organizing{" "}
-                <a
-                  href="https://emergentaiconference.com/"
-                  className="underline"
-                >
-                  Emergent
-                </a>
-                , the first-ever AI startup conference at Brown
+                <A href="https://emergentaiconference.com/">Emergent</A>, the
+                first-ever AI startup conference at Brown
               </li>
               <li>
                 Planning events for Brown's{" "}
-                <a
-                  href="https://www.brownentrepreneurship.com"
-                  className="underline"
-                >
+                <A href="https://www.brownentrepreneurship.com">
                   Entrepreneurship Program
-                </a>
+                </A>
               </li>
               <li>
                 Managing the CS department's{" "}
-                <a
-                  href="https://cs.brown.edu/degrees/undergrad/jobs/consult/"
-                  className="underline"
-                >
+                <A href="https://cs.brown.edu/degrees/undergrad/jobs/consult/">
                   Sunlab Consultants
-                </a>
+                </A>
               </li>
               <li>
                 Singing with the{" "}
-                <a
-                  href="https://music.brown.edu/music-making/ensembles/chorus"
-                  className="underline"
-                >
+                <A href="https://music.brown.edu/music-making/ensembles/chorus">
                   Brown University Chorus
-                </a>
+                </A>
               </li>
               <li>Taking photographs of the world around me</li>
             </ul>
@@ -92,42 +78,30 @@ export default function About() {
             <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-300">
               <li>
                 Machine Learning (
-                <a
-                  href="https://stephenbach.github.io/cs142-s25-www/"
-                  className="underline"
-                >
+                <A href="https://stephenbach.github.io/cs142-s25-www/">
                   CSCI 1420
-                </a>
+                </A>
                 )
               </li>
               <li>
                 Making Decisions (
-                <a
-                  href="https://selfservice.brown.edu/ss/bwckctlg.p_disp_course_detail?cat_term_in=202420&subj_code_in=CLPS&crse_numb_in=0220"
-                  className="underline"
-                >
+                <A href="https://selfservice.brown.edu/ss/bwckctlg.p_disp_course_detail?cat_term_in=202420&subj_code_in=CLPS&crse_numb_in=0220">
                   CLPS 220
-                </a>
+                </A>
                 )
               </li>
               <li>
                 The Entrepreneurial Process (
-                <a
-                  href="https://entrepreneurship.brown.edu/project/engn-1010-entrepreneurial-process-innovation-practice/"
-                  className="underline"
-                >
+                <A href="https://entrepreneurship.brown.edu/project/engn-1010-entrepreneurial-process-innovation-practice/">
                   ENGN 1010
-                </a>
+                </A>
                 )
               </li>
               <li>
                 Identites in Modern Israel (
-                <a
-                  href="https://selfservice.brown.edu/ss/bwckctlg.p_disp_course_detail?cat_term_in=202420&subj_code_in=JUDS&crse_numb_in=1756"
-                  className="underline"
-                >
+                <A href="https://selfservice.brown.edu/ss/bwckctlg.p_disp_course_detail?cat_term_in=202420&subj_code_in=JUDS&crse_numb_in=1756">
                   JUDS 1756
-                </a>
+                </A>
                 )
               </li>
             </ul>
@@ -137,14 +111,10 @@ export default function About() {
             <h3 className="text-lg font-semibold mb-3">Working on:</h3>
             <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-300">
               <li>
-                <a href="/projects" className="underline">
-                  Technical projects
-                </a>
+                <A href="/projects">Technical projects</A>
               </li>
               <li>
-                <a href="/posts" className="underline">
-                  Blog
-                </a>
+                <A href="/posts">Blog</A>
               </li>
             </ul>
           </div>
@@ -153,9 +123,7 @@ export default function About() {
             <h3 className="text-lg font-semibold mb-3">What else?</h3>
             <p className="text-sm text-neutral-600 dark:text-neutral-300">
               Since you've made it this far, perhaps you want to{" "}
-              <a href="/contact" className="underline">
-                get in touch!
-              </a>
+              <A href="/contact">get in touch!</A>
             </p>
           </div>
         </div>

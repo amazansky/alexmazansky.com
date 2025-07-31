@@ -1,3 +1,4 @@
+import A from "../components/A";
 import projectsData from "./data.json";
 
 interface Link {
@@ -91,15 +92,13 @@ export default function Projects() {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {project.links.map((link, linkIndex) => (
-                    <a
+                    <A
                       key={linkIndex}
                       href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-neutral-600 dark:text-neutral-400 underline hover:text-neutral-900 dark:hover:text-neutral-100 text-sm"
+                      className="text-neutral-600 dark:text-neutral-400 text-sm"
                     >
-                      {link.name} ↗
-                    </a>
+                      {link.name}
+                    </A>
                   ))}
                 </div>
               </div>

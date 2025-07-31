@@ -1,9 +1,10 @@
-import Link from "next/link";
-import Image from "next/image";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { highlight } from "sugar-high";
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import remarkGfm from "remark-gfm";
+import { highlight } from "sugar-high";
+import A from "./A";
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -25,24 +26,6 @@ function Table({ data }) {
       <tbody>{rows}</tbody>
     </table>
   );
-}
-
-function CustomLink(props) {
-  let href = props.href;
-
-  if (href.startsWith("/")) {
-    return (
-      <Link href={href} {...props}>
-        {props.children}
-      </Link>
-    );
-  }
-
-  if (href.startsWith("#")) {
-    return <a {...props} />;
-  }
-
-  return <a target="_blank" rel="noopener noreferrer" {...props} />;
 }
 
 function RoundedImage(props) {
@@ -95,7 +78,7 @@ let components = {
   h5: createHeading(5),
   h6: createHeading(6),
   Image: RoundedImage,
-  a: CustomLink,
+  a: A,
   code: Code,
   Table,
 };
