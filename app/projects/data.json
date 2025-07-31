@@ -1,0 +1,131 @@
+[
+  {
+    "name": "MemoReplay",
+    "description": "Web app designed to help dementia patients recall events in their past through questions and prompts about the photos in their camera roll.",
+    "technologies": ["TypeScript"],
+    "links": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/jackshuxu/MemoReplay",
+        "type": "primary"
+      },
+      {
+        "name": "DevPost",
+        "url": "https://devpost.com/software/memoreplay",
+        "type": "secondary"
+      }
+    ],
+    "hackathon": "[Hack@Brown 2025](https://2025.hackatbrown.org/)",
+    "collaborators": "[Christina Wang](https://wangchristina.com/), [Jack Xu](https://www.jack-shuxu.com/), and [Chris Zou](https://www.chris-zou.com/)",
+    "license": "MIT",
+    "date": "2025-02-02"
+  },
+  {
+    "name": "Weenix",
+    "description": "Fully functional Unix-based operating system kernel, built as a semester-long project in Brown University's [CS 1690](https://github.com/brown-cs1690/handout/wiki/Weenix-Operating-System) (Operating Systems). Implementation includes threads and processes, device drivers, a persistent file system, and virtual memory.",
+    "technologies": ["C"],
+    "links": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/amazansky/weenix",
+        "type": "primary"
+      }
+    ],
+    "date": "2024-05-15"
+  },
+  {
+    "name": "Scheduler",
+    "description": "Employee scheduler for the Brown University CS Department's Sunlab Consultants. The scheduler uses linear programming to solve for an optimal schedule, accounting for employee preferences and departmental policies.",
+    "technologies": ["Python"],
+    "links": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/amazansky/sunlab-scheduler",
+        "type": "primary"
+      }
+    ],
+    "license": "MIT",
+    "date": "2025-02-21"
+  },
+  {
+    "name": "TuneUtils",
+    "description": "Assortment of quick web tools for Spotify that provide user interfaces for otherwise API-only functionality.",
+    "technologies": ["PHP", "CSS"],
+    "links": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/amazansky/TuneUtils",
+        "type": "primary"
+      },
+      {
+        "name": "Website",
+        "url": "https://tuneutils.amazansky.com",
+        "type": "secondary"
+      }
+    ],
+    "license": "ISC",
+    "date": "2021-09-09"
+  },
+  {
+    "name": "Hugmaker",
+    "description": "Discord chatbot that generates custom emoji from flags or user profile pictures. The bot uses OpenCV and the Twemoji set.",
+    "technologies": ["Python"],
+    "links": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/amazansky/hugmaker",
+        "type": "primary"
+      }
+    ],
+    "license": "MIT and CC-BY-4.0",
+    "date": "2021-04-28"
+  },
+  {
+    "name": "Overtonic",
+    "description": "Program that determines the identity of an instrument based on the musical overtones of its sound, using fast Fourier transforms.",
+    "technologies": ["Python"],
+    "links": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/amazansky/overtonic",
+        "type": "primary"
+      }
+    ],
+    "license": "MIT",
+    "date": "2021-05-15"
+  },
+  {
+    "name": "Back to Drive",
+    "description": "Chrome extension that reverts the button link on the upper left of Google Docs, Sheets, and Slides pages back to what it used to be, drive.google.com.",
+    "technologies": ["JavaScript", "HTML"],
+    "links": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/amazansky/back-to-drive",
+        "type": "primary"
+      },
+      {
+        "name": "Download",
+        "url": "https://chrome.google.com/webstore/detail/back-to-drive/nkamccjapcjemblidlcaipacjgkmpgkp",
+        "type": "secondary"
+      }
+    ],
+    "license": "MIT",
+    "date": "2015-11-30"
+  },
+  {
+    "name": "DeathSwap",
+    "description": "Minecraft plugin that implements Dream's version of the minigame DeathSwap, originally conceived by SethBling.",
+    "technologies": ["Java"],
+    "links": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/amazansky/deathswap",
+        "type": "primary"
+      }
+    ],
+    "fork": "[ConcreteCactus/DeathSwap](https://github.com/ConcreteCactus/DeathSwap)",
+    "license": "MIT",
+    "date": "2020-04-16"
+  }
+]

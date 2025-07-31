@@ -29,6 +29,9 @@ importers:
       geist:
         specifier: 1.2.2
         version: 1.2.2(next@14.0.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
+      marked:
+        specifier: ^16.1.1
+        version: 16.1.1
       next:
         specifier: 14.0.0
         version: 14.0.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -539,6 +542,11 @@ packages:
 
   markdown-table@3.0.4:
     resolution: {integrity: sha512-wiYz4+JrLyb/DqW2hkFJxP7Vd7JuTDm77fvbM8VfEQdmSMqcImWeeRbHwZjBjIFki/VaMK2BhFi7oUUZeM5bqw==}
+
+  marked@16.1.1:
+    resolution: {integrity: sha512-ij/2lXfCRT71L6u0M29tJPhP0bM5shLL3u5BePhFwPELj2blMJ6GDtD7PfJhRLhJ/c2UwrK17ySVcDzy2YHjHQ==}
+    engines: {node: '>= 20'}
+    hasBin: true
 
   mdast-util-definitions@5.1.2:
     resolution: {integrity: sha512-8SVPMuHqlPME/z3gqVwWY4zVXn8lqKv/pAhC57FuJ40ImXyBpmO5ukh98zB2v7Blql2FiHjHv9LVztSIqjY+MA==}
@@ -1398,6 +1406,8 @@ snapshots:
   markdown-extensions@1.1.1: {}
 
   markdown-table@3.0.4: {}
+
+  marked@16.1.1: {}
 
   mdast-util-definitions@5.1.2:
     dependencies:
