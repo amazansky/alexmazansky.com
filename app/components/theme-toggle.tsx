@@ -32,7 +32,7 @@ function ThemeToggleInner() {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-lg transition-all duration-500 focus:outline-none cursor-pointer select-none text-foreground hover:bg-muted border-none"
+      className="p-2 rounded-lg transition-all duration-300 focus:outline-none cursor-pointer select-none text-foreground hover:bg-muted border-none"
       style={{
         WebkitTapHighlightColor: "transparent",
       }}

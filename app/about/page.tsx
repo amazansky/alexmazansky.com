@@ -11,7 +11,7 @@ export default function About() {
             I've been{" "}
             <strong>
               using technology to solve problems and address big questions.
-            </strong>
+            </strong>{" "}
             The last 10 years have been a journey of learning and exploring this
             interest: Along the way, I've automated over 150 hours of work by
             writing chatbots, generated three key leads for an investigation by

@@ -21,12 +21,12 @@
   --color-solarized-cyan: #2aa198;
   --color-solarized-green: #859900;
 
-  /* Override default colors for semantic usage */
-  --color-background: light-dark(var(--color-solarized-base3), var(--color-solarized-base03));
-  --color-foreground: light-dark(var(--color-solarized-base00), var(--color-solarized-base0));
-  --color-muted: light-dark(var(--color-solarized-base2), var(--color-solarized-base02));
-  --color-muted-foreground: light-dark(var(--color-solarized-base01), var(--color-solarized-base1));
-  --color-border: light-dark(var(--color-solarized-base2), var(--color-solarized-base02));
+  /* Light mode colors */
+  --color-background: var(--color-solarized-base3);
+  --color-foreground: var(--color-solarized-base00);
+  --color-muted: var(--color-solarized-base2);
+  --color-muted-foreground: var(--color-solarized-base01);
+  --color-border: var(--color-solarized-base2);
   
   /* Primary color scheme using solarized blue */
   --color-primary: var(--color-solarized-blue);
@@ -41,17 +41,31 @@
   --color-destructive-foreground: var(--color-solarized-base3);
 }
 
+/* Dark mode colors */
+.dark {
+  --color-background: var(--color-solarized-base03);
+  --color-foreground: var(--color-solarized-base0);
+  --color-muted: var(--color-solarized-base02);
+  --color-muted-foreground: var(--color-solarized-base1);
+  --color-border: var(--color-solarized-base02);
+}
+
 /* Syntax highlighting variables */
 :root {
-  --sh-class: light-dark(var(--color-solarized-violet), var(--color-solarized-violet));
-  --sh-identifier: light-dark(var(--color-solarized-base00), var(--color-solarized-base0));
-  --sh-sign: light-dark(var(--color-solarized-base01), var(--color-solarized-base01));
-  --sh-string: light-dark(var(--color-solarized-green), var(--color-solarized-green));
-  --sh-keyword: light-dark(var(--color-solarized-red), var(--color-solarized-red));
-  --sh-comment: light-dark(var(--color-solarized-base01), var(--color-solarized-base01));
-  --sh-jsxliterals: light-dark(var(--color-solarized-violet), var(--color-solarized-violet));
-  --sh-property: light-dark(var(--color-solarized-orange), var(--color-solarized-orange));
-  --sh-entity: light-dark(var(--color-solarized-orange), var(--color-solarized-orange));
+  --sh-class: var(--color-solarized-violet);
+  --sh-identifier: var(--color-solarized-base00);
+  --sh-sign: var(--color-solarized-base01);
+  --sh-string: var(--color-solarized-green);
+  --sh-keyword: var(--color-solarized-red);
+  --sh-comment: var(--color-solarized-base01);
+  --sh-jsxliterals: var(--color-solarized-violet);
+  --sh-property: var(--color-solarized-orange);
+  --sh-entity: var(--color-solarized-orange);
+}
+
+.dark {
+  --sh-identifier: var(--color-solarized-base0);
+  --sh-comment: var(--color-solarized-base01);
 }
 
 ::selection {
@@ -61,7 +75,6 @@
 
 html {
   min-width: 360px;
-  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .prose .anchor {
@@ -180,9 +193,10 @@ table {
   text-wrap: balance;
 }
 
-/* Theme transition animations */
-* {
-  transition-property: background-color, border-color, color, fill, stroke;
-  transition-duration: 0.5s;
-  transition-timing-function: ease;
+/* Theme transition animations - more selective to prevent flashing */
+body,
+.prose *,
+button,
+a {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
