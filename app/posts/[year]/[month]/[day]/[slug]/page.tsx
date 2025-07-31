@@ -1,5 +1,5 @@
 import { CustomMDX } from "app/components/mdx";
-import { formatDate, getBlogPosts } from "app/posts/utils";
+import { formatDate, getBlogPosts, getDateParts } from "app/posts/utils";
 import { baseUrl } from "app/sitemap";
 import { notFound } from "next/navigation";
 
@@ -7,10 +7,7 @@ export async function generateStaticParams() {
   let posts = getBlogPosts();
 
   return posts.map((post) => {
-    const date = new Date(post.metadata.publishedAt);
-    const year = date.getFullYear().toString();
-    const month = (date.getMonth() + 1).toString().padStart(2, "0");
-    const day = date.getDate().toString().padStart(2, "0");
+    const { year, month, day } = getDateParts(post.metadata.publishedAt);
 
     return {
       year,
@@ -23,10 +20,7 @@ export async function generateStaticParams() {
 
 export function generateMetadata({ params }) {
   let post = getBlogPosts().find((post) => {
-    const date = new Date(post.metadata.publishedAt);
-    const year = date.getFullYear().toString();
-    const month = (date.getMonth() + 1).toString().padStart(2, "0");
-    const day = date.getDate().toString().padStart(2, "0");
+    const { year, month, day } = getDateParts(post.metadata.publishedAt);
 
     return (
       post.slug === params.slug &&
@@ -50,10 +44,7 @@ export function generateMetadata({ params }) {
     ? image
     : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
 
-  const date = new Date(post.metadata.publishedAt);
-  const year = date.getFullYear();
-  const month = (date.getMonth() + 1).toString().padStart(2, "0");
-  const day = date.getDate().toString().padStart(2, "0");
+  const { year, month, day } = getDateParts(post.metadata.publishedAt);
 
   return {
     title,
@@ -81,10 +72,7 @@ export function generateMetadata({ params }) {
 
 export default function Blog({ params }) {
   let post = getBlogPosts().find((post) => {
-    const date = new Date(post.metadata.publishedAt);
-    const year = date.getFullYear().toString();
-    const month = (date.getMonth() + 1).toString().padStart(2, "0");
-    const day = date.getDate().toString().padStart(2, "0");
+    const { year, month, day } = getDateParts(post.metadata.publishedAt);
 
     return (
       post.slug === params.slug &&
@@ -98,10 +86,7 @@ export default function Blog({ params }) {
     notFound();
   }
 
-  const date = new Date(post.metadata.publishedAt);
-  const year = date.getFullYear();
-  const month = (date.getMonth() + 1).toString().padStart(2, "0");
-  const day = date.getDate().toString().padStart(2, "0");
+  const { year, month, day } = getDateParts(post.metadata.publishedAt);
 
   return (
     <section>

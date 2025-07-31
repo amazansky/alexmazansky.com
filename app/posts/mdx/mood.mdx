@@ -1,0 +1,61 @@
+---
+title: Making a mood tracker based on my music preferences
+author: Alex Mazansky
+layout: post
+note: A version of this post was originally published in the Winter 2021 edition of <em>Noteworthy</em>, HCHS's music magazine.
+publishedAt: 2021-03-09
+
+---
+
+Over a period of three months from roughly September to December 2020, as the second wave of the pandemic was hitting the United States in full force, I wanted to find some way to catalog my mood over time. Perhaps I could look back on it in the far-away future and gain a window into the hazy memories of a pandemic whose effects had (hopefully) been long relegated to the annals of history. But instead of using a journal or other traditional mood tracker to capture my emotional state during this time, I decided to make a playlist on Spotify.
+
+Around the same time I started this project, I discovered the wealth of data that Spotify stores about everything on its platform. Given the ubiquity of big data nowadays, your first thought upon reading that may have been, "of course they store data... What company doesn't nowadays?" And you'd be right to think that, but it's still worth mentioning the scale of the data they store, which includes an AI-generated analysis of the characteristics of every song on Spotify. [Qualities](https://developer.spotify.com/documentation/web-api/reference/#object-audiofeaturesobject) like energy, danceability, mood, and others are all assessed for each song on a scale of 0–100.[^1] Spotify generates this data to make recommendations based on songs a user already likes, but the important thing for this post is that it's all accessible via Spotify's API, meaning that I can harvest it for my own purposes.
+
+Going back to my mood-tracking playlist from earlier, I decided that each day, I would add one song that *resonated* with me. Admittedly, this methodology wasn't exactly up to the standard of a scientific experiment, but it would work just fine for my purposes. The idea was to combine my playlist with the aforementioned Spotify data to create a sort of mood tracker through music. By plotting the Spotify-determined energy and mood levels of the songs I chose every day, I could perhaps gain some insight into my emotional state during the time I added songs to the playlist.
+
+The last thing to understand is the United States Top 50 playlist. Every day, Spotify automatically updates the playlist with the 50 most-streamed songs in the US. To supplement the tracking of my own individual music, I wrote a small piece of code that would download the mood data for the Top 50 to my computer every day. That way, I could compare my music-based mood over time to that of the average American Spotify user.
+
+With all that said, here are the results of my mood-tracking efforts:
+
+<div class="columns is-desktop">
+    <div class="column">
+        <iframe width="100%" height="500rem" frameborder="0" scrolling="no" src="//plotly.com/~am4z/3.embed?showlink=false"></iframe>
+    </div>
+    <div class="column">
+        <iframe width="100%" height="500rem" frameborder="0" scrolling="no" src="//plotly.com/~am4z/1.embed?showlink=false"></iframe>
+    </div>
+</div>
+
+These graphs may feel a bit overwhelming at first, so let me break it down. Using the first graph as an example, the blue line labeled "my songs" represents Spotify's energy value for each day's song on my playlist. An energy value close to 0 represents low dynamic range, slow tempo, quiet volume, and an all-around "calm" feel. On the opposite end, an energy value close to 100 represents fast, loud music with an all-around feel of "high-energy." Next, the three gray lines represent the 25th, 50th (median), and 75th percentile energy values of the US Top 50 every day. By hovering over any given day in the graph, you can see the energy value of the song I picked that day as well as the aforementioned percentile energy values of the songs on the Top 50 that day.
+
+The same principle applies for second chart, but instead of representing energy, it represents mood.[^2] A mood value close to 0 represents a negative-feeling song (e.g. sad, angry) whereas a value close to 100 represents a positive-feeling song (e.g. happy). The orange line labeled "my songs" represents the mood of the song I picked on any given day, and the three gray lines represent the 25th, 50th, and 75th percentile mood values of the songs in the US Top 50 on that day.
+
+Now that you have an understanding of what the data means, I'd like to address some interesting trends within the US Top 50.[^3] Other than some small day-to-day variation, it seems as though the energy quartiles stayed roughly the same over most of the three month recording period. But around the start of December, the Top 50 began to show an dip in energy values. This effect was particularly pronounced in the 25th percentile line, which had been hovering around the 52–55 range for most of the recording period. It dipped below 50 for the first time on December 3, and it reached a low of 42.5 on December 6, 13, and 14.
+
+Concurrent with the dip in the Top 50's energy over the last few weeks was an increase in mood. While the 75th percentile of mood stayed in the 56–60 area most days during September and October, it started steadily increasing afterwards, reaching a high of 76.1 on December 3. Despite a sharp dip on December 19 back to 57.6, it quickly recovered, reaching 71.5 by the end of my recording period on December 21. While I haven't analyzed the data enough to definitively say why these two trends (lower energy and higher mood) occured in the Top 50, I believe they may have been caused by happier but lower-energy holiday music making its way into the Top 50 in the weeks leading up to the winter holidays.
+
+Turning away from the Top 50 and looking at the song choices on my own playlist, it's not as easy to find trends in the graphs.[^4] Since I only chose one song each day, I didn't get the smoothing effect (or the quartiles) found in the Top 50 data. Thus, my song choices have much wider day-to-day swings in both energy and mood. While it's possible to argue that the energy-lowering and mood-raising trend from the Top 50 can also be seen in my line, it's not as definitive because of the smaller number of songs represented by my line (one each day instead of 50). This issue reveals one of the main problems with my methodology: by only choosing one song each day, I collected a smaller-scale data set, which is inherently a much weaker data source from which to draw conclusions.
+
+But while it may be harder to find trends by simply looking at my songs over time, it's certainly still possible by organizing the data in a slightly different manner. One such option would be to group the song choices by weekday:
+
+<div class="columns is-desktop">
+    <div class="column">
+        <iframe width="100%" height="500px" frameborder="0" scrolling="no" src="//plotly.com/~am4z/7.embed?showlink=false"></iframe>
+    </div>
+    <div class="column">
+        <iframe width="100%" height="500px" frameborder="0" scrolling="no" src="//plotly.com/~am4z/5.embed?showlink=false"></iframe>
+    </div>
+</div>
+
+By looking at the data this way,[^5] some interesting trends emerge in the energy and mood values. For both metrics, Wednesdays had both the lowest overall song and the lowest median (by a sizable margin, in the case of mood). Interestingly, Fridays had rather small interquartile ranges on both metrics, suggesting that the type of music I enjoy on Fridays doesn't vary much: it's pretty low in energy but pretty happy. It's likely no coincidence that this captures exactly how I feel on Fridays. Another (less expected?) trend can be seen on Thursdays, which have the highest interquartile range and the highest median in both energy and mood.
+
+But sorting by weekday is not the only potential method to reorganize the data. One might also consider organizing the songs by the time of day I added them to the playlist, or even examine my song choices based on how much homework I had on the day I added them. The possibilities are nearly endless.
+
+When I step back from thinking about specific trends in the data, though, I take some time to look through the five hours worth of songs I chose to represent the last three months of 2020.[^6] Examining my musical data in this way gives me a unique perspective on this recent sliver of my life: from the popular songs I discovered months after everyone else, to my impatience to listen to holiday music long before Thanksgiving, to all the new genres I've come to appreciate, it has been a rewarding experience to listen to so much music every day—one that will undoubtedly shape both my consumption of music and my self-reflection for a long time to come.
+
+[^1]: Technically it's measured 0–1, but I multiplied everything by 100 to make the data a bit easier to digest.
+[^2]: Spotify refers to this metric as "valence" instead of "mood," but the idea is the more or less the same.
+[^3]: While you're reading this section, it might be helpful to filter out my song data, so you can only see the Top 50. To do so, click on the words "my songs" in the legend of each chart to filter out the corresponding lines.
+[^4]: If you filtered out my song data before using the instructions in the previous footnote, you can just do the same thing again to bring the "my songs" line back.
+[^5]: The type of graph seen above is called a box plot. There are lots of great explanations online for how to read them; I'd encourage you to check those out if you don't know how already. It's not only a good life skill but will also help you understand the rest of this blog post :)
+[^6]: No, I don't plan to release the playlist. I wanted this project to be as true to myself as possible, so I decided at the start that I wouldn't include the playlist in this blog post. That way, I could avoid bias in choosing songs that I knew would be publicly associated with me and instead pick the ones that most authentically represented my mood every day.

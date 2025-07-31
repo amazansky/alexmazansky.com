@@ -1,4 +1,4 @@
-import { formatDate, getBlogPosts } from "app/posts/utils";
+import { formatDate, getBlogPosts, getDateParts } from "app/posts/utils";
 import Link from "next/link";
 
 export function BlogPosts() {
@@ -16,10 +16,7 @@ export function BlogPosts() {
           return 1;
         })
         .map((post) => {
-          const date = new Date(post.metadata.publishedAt);
-          const year = date.getFullYear();
-          const month = (date.getMonth() + 1).toString().padStart(2, "0");
-          const day = date.getDate().toString().padStart(2, "0");
+          const { year, month, day } = getDateParts(post.metadata.publishedAt);
           const url = `/posts/${year}/${month}/${day}/${post.slug}`;
 
           return (

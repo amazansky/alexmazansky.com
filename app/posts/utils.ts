@@ -53,12 +53,25 @@ export function getBlogPosts() {
   return getMDXData(path.join(process.cwd(), "app", "posts", "mdx"));
 }
 
+function parsePublishedDate(dateString: string): Date {
+  if (!dateString.includes("T")) {
+    dateString = `${dateString}T00:00:00`;
+  }
+  return new Date(dateString);
+}
+
+export function getDateParts(publishedAt: string) {
+  const date = parsePublishedDate(publishedAt);
+  const year = date.getFullYear().toString();
+  const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  const day = date.getDate().toString().padStart(2, "0");
+  
+  return { year, month, day, date };
+}
+
 export function formatDate(date: string, includeRelative = false) {
   let currentDate = new Date();
-  if (!date.includes("T")) {
-    date = `${date}T00:00:00`;
-  }
-  let targetDate = new Date(date);
+  let targetDate = parsePublishedDate(date);
 
   let yearsAgo = currentDate.getFullYear() - targetDate.getFullYear();
   let monthsAgo = currentDate.getMonth() - targetDate.getMonth();
@@ -76,9 +89,9 @@ export function formatDate(date: string, includeRelative = false) {
     formattedDate = "Today";
   }
 
-  let fullDate = targetDate.toLocaleString("en-us", {
-    month: "long",
-    day: "numeric",
+  let fullDate = targetDate.toLocaleString("en-uk", {
+    month: "short",
+    day: "2-digit",
     year: "numeric",
   });
 
