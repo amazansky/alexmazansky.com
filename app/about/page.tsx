@@ -45,7 +45,7 @@ export default function About() {
         <div className="space-y-6 mt-4">
           <div>
             <h3 className="text-lg font-semibold mb-3">Doing:</h3>
-            <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-300">
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 Organizing{" "}
                 <A href="https://emergentaiconference.com/">Emergent</A>, the
@@ -75,7 +75,7 @@ export default function About() {
 
           <div>
             <h3 className="text-lg font-semibold mb-3">Learning:</h3>
-            <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-300">
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 Machine Learning (
                 <A href="https://stephenbach.github.io/cs142-s25-www/">
@@ -109,7 +109,7 @@ export default function About() {
 
           <div>
             <h3 className="text-lg font-semibold mb-3">Working on:</h3>
-            <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-300">
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 <A href="/projects">Technical projects</A>
               </li>
@@ -121,7 +121,7 @@ export default function About() {
 
           <div>
             <h3 className="text-lg font-semibold mb-3">What else?</h3>
-            <p className="text-sm text-neutral-600 dark:text-neutral-300">
+            <p className="text-sm text-muted-foreground">
               Since you've made it this far, perhaps you want to{" "}
               <A href="/contact">get in touch!</A>
             </p>

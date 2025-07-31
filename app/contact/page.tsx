@@ -8,7 +8,7 @@ export default function Contact() {
             Thanks for your interest in reaching out! The best way to get in
             touch with me is by email to:
           </p>
-          <p className="font-mono text-sm bg-neutral-100 dark:bg-neutral-800 px-3 py-2 rounded">
+          <p className="font-mono text-sm px-3 py-2 rounded bg-muted">
             <strong>
               amazansk{" "}
               <span className="idk-if-separating-like-this-thwarts-email-scrapers-but-maybe-ill-get-less-spam-this-way">

@@ -42,15 +42,9 @@ function parseMarkdownLinks(text: string): React.ReactNode[] {
 
     // Add the link
     parts.push(
-      <a
-        key={match.index}
-        href={match[2]}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="underline hover:text-neutral-900 dark:hover:text-neutral-100"
-      >
-        {match[1]} ↗
-      </a>
+      <A key={match.index} href={match[2]}>
+        {match[1]}
+      </A>
     );
 
     lastIndex = match.index + match[0].length;
@@ -82,32 +76,24 @@ export default function Projects() {
             key={index}
             className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2"
           >
-            <p className="text-neutral-600 dark:text-neutral-400 w-[100px] tabular-nums">
-              {formatDate(project.date)}
-            </p>
+            <p className="w-[100px] tabular-nums text-muted-foreground">{formatDate(project.date)}</p>
             <div className="flex-1">
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-2">
-                <p className="text-neutral-900 dark:text-neutral-100 tracking-tight font-medium">
-                  {project.name}
-                </p>
+                <p className="tracking-tight font-medium text-foreground">{project.name}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.links.map((link, linkIndex) => (
-                    <A
-                      key={linkIndex}
-                      href={link.url}
-                      className="text-neutral-600 dark:text-neutral-400 text-sm"
-                    >
+                    <A key={linkIndex} href={link.url} className="text-sm">
                       {link.name}
                     </A>
                   ))}
                 </div>
               </div>
 
-              <p className="text-neutral-700 dark:text-neutral-300 text-sm leading-relaxed mb-2">
+              <p className="text-sm leading-relaxed mb-2 text-muted-foreground">
                 {parseMarkdownLinks(project.description)}
               </p>
 
-              <div className="space-y-1 text-xs text-neutral-600 dark:text-neutral-400">
+              <div className="space-y-1 text-xs text-muted-foreground">
                 {project.hackathon && (
                   <p>🚀 Submitted to {parseMarkdownLinks(project.hackathon)}</p>
                 )}

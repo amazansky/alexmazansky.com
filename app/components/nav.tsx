@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import A from "./A";
+import { ThemeToggle } from "./theme-toggle";
 
 const navItems = {
   "/": {
@@ -26,19 +30,20 @@ export function Navbar() {
           className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
           id="nav"
         >
-          <div className="flex flex-row space-x-4 pr-10">
+          <div className="flex flex-row space-x-4 pr-10 flex-1">
             {Object.entries(navItems).map(([path, { name }]) => {
               return (
-                <Link
+                <A
                   key={path}
                   href={path}
-                  className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1"
+                  className="transition-all flex align-middle relative py-1"
                 >
                   {name}
-                </Link>
+                </A>
               );
             })}
           </div>
+          <ThemeToggle />
         </nav>
       </div>
     </aside>

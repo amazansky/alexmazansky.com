@@ -14,7 +14,11 @@ export default function A({
   // Check if it's an internal link
   if (href.startsWith("/")) {
     return (
-      <Link href={href} className={`underline ${className}`} {...props}>
+      <Link
+        href={href}
+        className={`text-primary hover:text-accent transition-all ${className}`}
+        {...props}
+      >
         {children}
       </Link>
     );
@@ -23,7 +27,11 @@ export default function A({
   // Check if it's a hash link
   if (href.startsWith("#")) {
     return (
-      <a href={href} className={`underline ${className}`} {...props}>
+      <a
+        href={href}
+        className={`text-primary hover:text-accent transition-all ${className}`}
+        {...props}
+      >
         {children}
       </a>
     );
@@ -35,7 +43,7 @@ export default function A({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`underline hover:text-neutral-900 dark:hover:text-neutral-100 ${className}`}
+      className={`text-primary hover:text-accent transition-all ${className}`}
       {...props}
     >
       {children} ↗

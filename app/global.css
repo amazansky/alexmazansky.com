@@ -1,36 +1,67 @@
 @import "tailwindcss";
 
-::selection {
-  background-color: #47a3f3;
-  color: #fefefe;
+@theme {
+  /* Solarized base colors */
+  --color-solarized-base03: #002b36;
+  --color-solarized-base02: #073642;
+  --color-solarized-base01: #586e75;
+  --color-solarized-base00: #657b83;
+  --color-solarized-base0: #839496;
+  --color-solarized-base1: #93a1a1;
+  --color-solarized-base2: #eee8d5;
+  --color-solarized-base3: #fdf6e3;
+  
+  /* Solarized accent colors */
+  --color-solarized-yellow: #b58900;
+  --color-solarized-orange: #cb4b16;
+  --color-solarized-red: #dc322f;
+  --color-solarized-magenta: #d33682;
+  --color-solarized-violet: #6c71c4;
+  --color-solarized-blue: #268bd2;
+  --color-solarized-cyan: #2aa198;
+  --color-solarized-green: #859900;
+
+  /* Override default colors for semantic usage */
+  --color-background: light-dark(var(--color-solarized-base3), var(--color-solarized-base03));
+  --color-foreground: light-dark(var(--color-solarized-base00), var(--color-solarized-base0));
+  --color-muted: light-dark(var(--color-solarized-base2), var(--color-solarized-base02));
+  --color-muted-foreground: light-dark(var(--color-solarized-base01), var(--color-solarized-base1));
+  --color-border: light-dark(var(--color-solarized-base2), var(--color-solarized-base02));
+  
+  /* Primary color scheme using solarized blue */
+  --color-primary: var(--color-solarized-blue);
+  --color-primary-foreground: var(--color-solarized-base3);
+  
+  /* Accent color using solarized cyan */
+  --color-accent: var(--color-solarized-cyan);
+  --color-accent-foreground: var(--color-solarized-base03);
+  
+  /* Destructive using solarized red */
+  --color-destructive: var(--color-solarized-red);
+  --color-destructive-foreground: var(--color-solarized-base3);
 }
 
+/* Syntax highlighting variables */
 :root {
-  --sh-class: #2d5e9d;
-  --sh-identifier: #354150;
-  --sh-sign: #8996a3;
-  --sh-string: #007f7a;
-  --sh-keyword: #e02518;
-  --sh-comment: #a19595;
-  --sh-jsxliterals: #6266d1;
-  --sh-property: #e25a1c;
-  --sh-entity: #e25a1c;
+  --sh-class: light-dark(var(--color-solarized-violet), var(--color-solarized-violet));
+  --sh-identifier: light-dark(var(--color-solarized-base00), var(--color-solarized-base0));
+  --sh-sign: light-dark(var(--color-solarized-base01), var(--color-solarized-base01));
+  --sh-string: light-dark(var(--color-solarized-green), var(--color-solarized-green));
+  --sh-keyword: light-dark(var(--color-solarized-red), var(--color-solarized-red));
+  --sh-comment: light-dark(var(--color-solarized-base01), var(--color-solarized-base01));
+  --sh-jsxliterals: light-dark(var(--color-solarized-violet), var(--color-solarized-violet));
+  --sh-property: light-dark(var(--color-solarized-orange), var(--color-solarized-orange));
+  --sh-entity: light-dark(var(--color-solarized-orange), var(--color-solarized-orange));
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --sh-class: #4c97f8;
-    --sh-identifier: white;
-    --sh-keyword: #f47067;
-    --sh-string: #0fa295;
-  }
-  html {
-    color-scheme: dark;
-  }
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-background);
 }
 
 html {
   min-width: 360px;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .prose .anchor {
@@ -48,11 +79,11 @@ html {
 }
 
 .prose a {
-  @apply underline transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
+  @apply transition-all text-primary hover:text-accent;
 }
 
 .prose .anchor:after {
-  @apply text-neutral-300 dark:text-neutral-700;
+  @apply text-muted-foreground;
   content: "#";
 }
 
@@ -61,15 +92,15 @@ html {
 }
 
 .prose pre {
-  @apply bg-neutral-50 dark:bg-neutral-900 rounded-lg overflow-x-auto border border-neutral-200 dark:border-neutral-900 py-2 px-3 text-sm;
+  @apply bg-muted border border-border rounded-lg overflow-x-auto py-2 px-3 text-sm;
 }
 
 .prose code {
-  @apply px-1 py-0.5 rounded-lg;
+  @apply px-1 py-0.5 rounded-lg bg-muted text-foreground;
 }
 
 .prose pre code {
-  @apply p-0;
+  @apply p-0 bg-transparent;
   border: initial;
   line-height: 1.5;
 }
@@ -84,27 +115,27 @@ html {
 }
 
 .prose p {
-  @apply my-4 text-neutral-800 dark:text-neutral-200;
+  @apply my-4 text-foreground;
 }
 
 .prose h1 {
-  @apply text-4xl font-medium tracking-tight mt-6 mb-2;
+  @apply text-4xl font-medium tracking-tight mt-6 mb-2 text-foreground;
 }
 
 .prose h2 {
-  @apply text-xl font-medium tracking-tight mt-6 mb-2;
+  @apply text-xl font-medium tracking-tight mt-6 mb-2 text-foreground;
 }
 
 .prose h3 {
-  @apply text-xl font-medium tracking-tight mt-6 mb-2;
+  @apply text-xl font-medium tracking-tight mt-6 mb-2 text-foreground;
 }
 
 .prose h4 {
-  @apply text-lg font-medium tracking-tight mt-6 mb-2;
+  @apply text-lg font-medium tracking-tight mt-6 mb-2 text-foreground;
 }
 
 .prose strong {
-  @apply font-medium;
+  @apply font-medium text-solarized-orange;
 }
 
 .prose ul {
@@ -147,4 +178,11 @@ table {
 
 .title {
   text-wrap: balance;
+}
+
+/* Theme transition animations */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
 }
