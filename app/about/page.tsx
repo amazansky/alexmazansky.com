@@ -40,7 +40,7 @@ export default function About() {
         </div>
 
         <h2 className="text-xl font-semibold tracking-tighter">
-          Here are some things I've been up to lately...
+          Here's what I've been up to lately...
         </h2>
         <div className="space-y-6 mt-4">
           <div>
@@ -103,18 +103,6 @@ export default function About() {
                   JUDS 1756
                 </A>
                 )
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-3">Working on:</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>
-                <A href="/projects">Technical projects</A>
-              </li>
-              <li>
-                <A href="/posts">Blog</A>
               </li>
             </ul>
           </div>

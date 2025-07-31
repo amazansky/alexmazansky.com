@@ -69,17 +69,21 @@ export default function Projects() {
     <section>
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">Projects</h1>
 
-      <div className="space-y-6">
+      <div className="space-y-8 md:space-y-6">
         {sortedProjects.map((project, index) => (
           // <div className="flex flex-col space-y-1 mb-4">
           <div
             key={index}
             className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2"
           >
-            <p className="w-[100px] tabular-nums text-muted-foreground">{formatDate(project.date)}</p>
+            <p className="w-[100px] tabular-nums text-muted-foreground">
+              {formatDate(project.date)}
+            </p>
             <div className="flex-1">
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-2">
-                <p className="tracking-tight font-medium text-foreground">{project.name}</p>
+                <p className="tracking-tight font-medium text-foreground">
+                  {project.name}
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {project.links.map((link, linkIndex) => (
                     <A key={linkIndex} href={link.url} className="text-sm">
