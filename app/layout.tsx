@@ -1,25 +1,25 @@
-import "./global.css";
-import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
-import { Navbar } from "./components/nav";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
+import type { Metadata } from "next";
 import Footer from "./components/footer";
+import { Navbar } from "./components/nav";
+import "./global.css";
 import { baseUrl } from "./sitemap";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Next.js Portfolio Starter",
-    template: "%s | Next.js Portfolio Starter",
+    default: "Alex Mazansky",
+    template: "%s | Alex Mazansky",
   },
-  description: "This is my portfolio.",
+  description: "Personal blog and portfolio.",
   openGraph: {
-    title: "My Portfolio",
-    description: "This is my portfolio.",
+    title: "Alex Mazansky",
+    description: "Personal blog and portfolio.",
     url: baseUrl,
-    siteName: "My Portfolio",
+    siteName: "Alex Mazansky",
     locale: "en_US",
     type: "website",
   },
