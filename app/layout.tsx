@@ -77,7 +77,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto bg-background text-foreground">
+      <body className="antialiased max-w-xl mx-8 mt-8 sm:mx-auto bg-background text-foreground">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -85,7 +85,7 @@ export default function RootLayout({
           disableTransitionOnChange={false}
           storageKey="theme"
         >
-          <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+          <main className="flex-auto min-w-0 mt-6 flex flex-col ">
             <Navbar />
             {children}
             <Footer />

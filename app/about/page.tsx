@@ -45,7 +45,7 @@ export default function About() {
         <div className="space-y-6 mt-4">
           <div>
             <h3 className="text-lg font-semibold mb-3">Doing:</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <ul className="list-disc pl-4 text-sm space-y-2 text-muted-foreground">
               <li>
                 Organizing{" "}
                 <A href="https://emergentaiconference.com/">Emergent</A>, the
@@ -75,7 +75,7 @@ export default function About() {
 
           <div>
             <h3 className="text-lg font-semibold mb-3">Learning:</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <ul className="list-disc pl-4 text-sm space-y-2 text-muted-foreground">
               <li>
                 Machine Learning (
                 <A href="https://stephenbach.github.io/cs142-s25-www/">

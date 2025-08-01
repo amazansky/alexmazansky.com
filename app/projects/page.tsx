@@ -76,7 +76,7 @@ export default function Projects() {
             key={index}
             className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2"
           >
-            <p className="w-[100px] tabular-nums text-muted-foreground">
+            <p className="w-[100px] tabular-nums text-muted-foreground tracking-tight sm:tracking-normal">
               {formatDate(project.date)}
             </p>
             <div className="flex-1">
