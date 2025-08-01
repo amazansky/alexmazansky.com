@@ -1,3 +1,4 @@
+// import { NAME } from "app/copywriting";
 import A from "./A";
 
 export default function Footer() {
@@ -18,7 +19,7 @@ export default function Footer() {
         </li>
       </ul>
       {/* <p className="mt-8 text-muted-foreground">
-        © {new Date().getFullYear()} Alex Mazansky
+        © {new Date().getFullYear()} {NAME}
       </p> */}
     </footer>
   );

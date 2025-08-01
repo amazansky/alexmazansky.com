@@ -1,8 +1,9 @@
+import { NAME } from "app/copywriting";
 import { ImageResponse } from "next/og";
 
 export function GET(request: Request) {
   let url = new URL(request.url);
-  let title = url.searchParams.get("title") || "Alex Mazansky";
+  let title = url.searchParams.get("title") || NAME;
 
   return new ImageResponse(
     (

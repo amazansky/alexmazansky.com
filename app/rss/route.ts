@@ -1,3 +1,4 @@
+import { NAME } from "app/copywriting";
 import { getBlogPosts, getDateParts } from "app/posts/utils";
 import { baseUrl } from "app/sitemap";
 
@@ -29,7 +30,7 @@ export async function GET() {
   const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>
   <rss version="2.0">
     <channel>
-        <title>Alex Mazansky</title>
+        <title>${NAME}</title>
         <link>${baseUrl}</link>
         <description>This is my portfolio RSS feed</description>
         ${itemsXml}

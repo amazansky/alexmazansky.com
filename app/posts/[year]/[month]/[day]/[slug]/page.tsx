@@ -1,4 +1,5 @@
 import { CustomMDX } from "app/components/mdx";
+import { NAME } from "app/copywriting";
 import { formatDate, getBlogPosts, getDateParts } from "app/posts/utils";
 import { baseUrl } from "app/sitemap";
 import { notFound } from "next/navigation";
@@ -107,7 +108,7 @@ export default function Blog({ params }) {
             url: `${baseUrl}/posts/${year}/${month}/${day}/${post.slug}`,
             author: {
               "@type": "Person",
-              name: "Alex Mazansky",
+              name: NAME,
             },
           }),
         }}

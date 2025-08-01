@@ -6,21 +6,22 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import Footer from "./components/footer";
 import { Navbar } from "./components/nav";
+import { DESCRIPTION, NAME } from "./copywriting";
 import "./global.css";
 import { baseUrl } from "./sitemap";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Alex Mazansky",
-    template: "%s | Alex Mazansky",
+    default: NAME,
+    template: `%s | ${NAME}`,
   },
-  description: "Personal blog and portfolio.",
+  description: DESCRIPTION,
   openGraph: {
-    title: "Alex Mazansky",
-    description: "Personal blog and portfolio.",
+    title: NAME,
+    description: DESCRIPTION,
     url: baseUrl,
-    siteName: "Alex Mazansky",
+    siteName: NAME,
     locale: "en_US",
     type: "website",
   },

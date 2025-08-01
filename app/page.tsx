@@ -1,18 +1,14 @@
 import A from "./components/A";
+import { HEADER_1, HEADER_2, HEADER_3 } from "./copywriting";
 
 export default function Page() {
   return (
     <section>
       <h1 className="mb-0 text-3xl font-semibold tracking-tighter">
-        Hi, I'm Alex Mazansky
+        {HEADER_1}
       </h1>
-      <h2 className="mb-4 text-lg">
-        a senior at Brown University studying Computer Science.
-      </h2>
-      <p className="mb-8">
-        I'm an ambitious problem-solver, blending technical expertise with
-        creative insights to address meaningful challenges.
-      </p>
+      <h2 className="mb-4 text-lg">{HEADER_2}</h2>
+      <p className="mb-8">{HEADER_3}</p>
 
       <A
         href="/about"
