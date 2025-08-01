@@ -5,6 +5,7 @@ import React from "react";
 import remarkGfm from "remark-gfm";
 import { highlight } from "sugar-high";
 import A from "./A";
+import { EmergentAttendeeReferralChart } from "./AttendeeReferralChart";
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -81,6 +82,7 @@ let components = {
   a: A,
   code: Code,
   Table,
+  AttendeeReferralChart: EmergentAttendeeReferralChart,
 };
 
 export function CustomMDX(props) {
