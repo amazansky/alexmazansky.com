@@ -38,7 +38,7 @@ export function generateMetadata({ params }) {
   let {
     title,
     publishedAt: publishedTime,
-    summary: description,
+    subtitle: description,
     image,
   } = post.metadata;
   let ogImage = image
@@ -101,7 +101,7 @@ export default function Blog({ params }) {
             headline: post.metadata.title,
             datePublished: post.metadata.publishedAt,
             dateModified: post.metadata.publishedAt,
-            description: post.metadata.summary,
+            description: post.metadata.subtitle,
             image: post.metadata.image
               ? `${baseUrl}${post.metadata.image}`
               : `/og?title=${encodeURIComponent(post.metadata.title)}`,
@@ -116,6 +116,11 @@ export default function Blog({ params }) {
       <h1 className="title font-semibold text-2xl tracking-tighter">
         {post.metadata.title}
       </h1>
+      {post.metadata.subtitle && (
+        <p className="text-sm text-muted-foreground">
+          <em>{post.metadata.subtitle}</em>
+        </p>
+      )}
       <div className="flex justify-between items-center mt-2 mb-8 text-sm">
         <p className="text-sm">{formatDate(post.metadata.publishedAt)}</p>
       </div>

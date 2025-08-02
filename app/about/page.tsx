@@ -12,30 +12,29 @@ export default function About() {
             <strong>
               using technology to solve problems and address big questions.
             </strong>{" "}
-            The last 10 years have been a journey of learning and exploring this
-            interest: Along the way, I've automated over 150 hours of work by
-            writing chatbots, generated three key leads for an investigation by
-            visualizing social media data, and taught 10 underserved middle
-            schoolers to code.
+            The last {new Date().getFullYear() - 2013} years have been a journey
+            of learning and exploring this interest. Along the way, I've
+            automated over 150 hours of work by writing chatbots, generated key
+            leads for an investigation by visualizing social media data, and
+            taught 10 middle schoolers to code.
           </p>
           <p>
-            I came to university to study the technologies that power our
-            everyday machines, such as low-level computer systems and artificial
-            intelligence. While at Brown, I also discovered entrepreneurship as
-            an outlet for my problem-solving skills, and I've been learning more
-            through coursework and participation in student groups.
+            When I first got to university, I wanted to study how computers work
+            under the hood. But as I progressed through courses in operating
+            systems and computational theory, I found myself more drawn towards
+            addressing real-world needs through tech entrepreneurship. Since
+            then, I've interned at two startups and organized the first-ever AI
+            venture conference at Brown.
           </p>
           <p>
-            Beyond the screen, you might find me writing music, learning new
-            languages, singing, or exploring and photographing the cities around
-            me. These diverse interests lend additional insights to my
-            problem-solving skills, which have been at the root of some of my
-            best ideas.
+            Beyond the screen, you might find me biking, composing music,
+            learning new languages, singing, or exploring and photographing the
+            cities around me.
           </p>
           <p>
-            I invite you to explore this website to learn more about me and my
-            work. If any of what you find seems interesting,{" "}
-            <A href="/contact">let's connect!</A>
+            I invite you to explore this website to learn about my work. If any
+            of what you find seems interesting, please{" "}
+            <A href="/contact">get in touch.</A>
           </p>
         </div>
 
@@ -43,6 +42,16 @@ export default function About() {
           Here's what I've been up to lately...
         </h2>
         <div className="space-y-6 mt-4">
+          <div>
+            <h3 className="text-lg font-semibold mb-3">Working:</h3>
+            <ul className="list-disc pl-4 text-sm space-y-2 text-muted-foreground">
+              <li>
+                Interning as an engineer at{" "}
+                <A href="https://fresco-ai.com">Fresco</A> (YC F24)
+              </li>
+            </ul>
+          </div>
+
           <div>
             <h3 className="text-lg font-semibold mb-3">Doing:</h3>
             <ul className="list-disc pl-4 text-sm space-y-2 text-muted-foreground">

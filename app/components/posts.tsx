@@ -20,18 +20,24 @@ export function BlogPosts() {
           const url = `/posts/${year}/${month}/${day}/${post.slug}`;
 
           return (
-            <A
+            <div
               key={post.slug}
-              className="flex flex-col space-y-1 mb-4"
-              href={url}
+              className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2"
             >
-              <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2">
-                <p className="w-[100px] tabular-nums text-muted-foreground tracking-tight md:tracking-normal">
-                  {formatDate(post.metadata.publishedAt, false)}
-                </p>
-                <p className="tracking-tight">{post.metadata.title}</p>
+              <p className="w-[100px] tabular-nums text-muted-foreground tracking-tight md:tracking-normal">
+                {formatDate(post.metadata.publishedAt, false)}
+              </p>
+              <div className="tracking-tight mb-4">
+                <span>
+                  <A href={url}>{post.metadata.title}</A>
+                </span>
+                {post.metadata.subtitle && (
+                  <p className="text-sm text-muted-foreground">
+                    <em>{post.metadata.subtitle}</em>
+                  </p>
+                )}
               </div>
-            </A>
+            </div>
           );
         })}
     </div>

@@ -5,7 +5,7 @@ export default function Contact() {
       <div className="space-y-8">
         <div className="prose prose-neutral dark:prose-invert">
           <p>
-            Thanks for your interest in reaching out! The best way to get in
+            Thanks for your interest in reaching out. The best way to get in
             touch with me is by emailing:
           </p>
           <p className="font-mono text-sm px-3 py-2 rounded bg-muted">
@@ -17,10 +17,7 @@ export default function Contact() {
               cs dot brown dot edu
             </strong>
           </p>
-          <p>
-            I try my best to respond to all correspondence promptly. Looking
-            forward to hearing from you!
-          </p>
+          <p>Looking forward to hearing from you!</p>
         </div>
       </div>
     </section>
