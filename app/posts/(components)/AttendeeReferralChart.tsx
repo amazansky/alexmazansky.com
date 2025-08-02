@@ -27,7 +27,6 @@ export const EmergentAttendeeReferralChart = () => {
 
   const total = data.reduce((acc, curr) => acc + curr.value, 0);
 
-  /*
   const CustomTooltip = ({ active, payload }: any) => {
     if (active && payload && payload.length) {
       return (
@@ -52,13 +51,12 @@ export const EmergentAttendeeReferralChart = () => {
             style={{ backgroundColor: entry.color }}
           />
           <span className="text-foreground">
-            {entry.value}: {data.find((d) => d.name === entry.value)?.value}%
+            {entry.value}: {data.find((d) => d.name === entry.value)?.value}
           </span>
         </span>
       ))}
     </div>
   );
-  */
 
   return (
     <div className="w-full my-8">
@@ -75,15 +73,15 @@ export const EmergentAttendeeReferralChart = () => {
             cy="50%"
             outerRadius={120}
             dataKey="value"
-            label={({ name, value, percent }) => `${name}: ${value}`}
-            labelLine={true}
+            // label={({ name, value, percent }) => `${name}: ${value}`}
+            // labelLine={true}
           >
             {data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={entry.color} />
             ))}
           </Pie>
-          {/* <Tooltip content={CustomTooltip} />
-          <Legend content={CustomLegend} /> */}
+          <Tooltip content={CustomTooltip} />
+          <Legend content={CustomLegend} />
         </PieChart>
       </ResponsiveContainer>
     </div>
