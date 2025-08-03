@@ -10,11 +10,8 @@ export default function Page() {
       <h2 className="mb-8 text-lg">{HEADER_2}</h2>
       <p className="mb-8">{HEADER_3}</p>
 
-      <A
-        href="/about"
-        className="text-solarized-magenta hover:text-solarized-yellow underline"
-      >
-        Learn more about me
+      <A href="/about" className="text-solarized-green underline">
+        Learn more about me →
       </A>
     </section>
   );

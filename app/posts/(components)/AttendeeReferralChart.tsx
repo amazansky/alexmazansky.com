@@ -71,10 +71,10 @@ export const EmergentAttendeeReferralChart = () => {
             data={data}
             cx="50%"
             cy="50%"
-            outerRadius={120}
+            outerRadius={110}
             dataKey="value"
-            // label={({ name, value, percent }) => `${name}: ${value}`}
-            // labelLine={true}
+            label={({ name, value, percent }) => `${name}`}
+            labelLine={false}
           >
             {data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={entry.color} />
