@@ -25,7 +25,8 @@
   --color-background: var(--color-solarized-base3);
   --color-foreground: var(--color-solarized-base01); /* in the original theme, this is base00 - changed for readability */
   --color-muted: var(--color-solarized-base2);
-  --color-muted-foreground: var(--color-solarized-base01);
+  --color-muted-border: var(--color-solarized-base1);
+  --color-muted-foreground: var(--color-solarized-base0);
   --color-border: var(--color-solarized-base2);
   
   /* Primary color scheme using solarized blue */
@@ -46,7 +47,8 @@
   --color-background: var(--color-solarized-base03);
   --color-foreground: var(--color-solarized-base1); /* in the original theme, this is base0 - changed for readability */
   --color-muted: var(--color-solarized-base02);
-  --color-muted-foreground: var(--color-solarized-base1);
+  --color-muted-border: var(--color-solarized-base01);
+  --color-muted-foreground: var(--color-solarized-base00);
   --color-border: var(--color-solarized-base02);
 }
 

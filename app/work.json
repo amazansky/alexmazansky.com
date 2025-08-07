@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Fresco (YC F24)",
+    "title": "Engineering",
+    "start": "2025-06",
+    "end": "2025-08",
+    "imageUrl": "fresco.png",
+    "link": "https://fresco-ai.com"
+  },
+  {
+    "name": "Roscommon Analytics",
+    "title": "Data",
+    "start": "2024-06",
+    "end": "2024-08",
+    "imageUrl": "roscommon.jpg",
+    "link": "https://www.roscommonanalytics.com"
+  },
+  {
+    "name": "Fermata Discovery",
+    "title": "Engineering",
+    "start": "2023-07",
+    "end": "2023-08",
+    "imageUrl": "fermata.png",
+    "link": "https://www.fermatadiscovery.com/"
+  }
+]

@@ -76,7 +76,7 @@ export default function Projects() {
             key={index}
             className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2"
           >
-            <p className="w-[100px] tabular-nums text-muted-foreground tracking-tight sm:tracking-normal">
+            <p className="w-[100px] tabular-nums tracking-tight sm:tracking-normal">
               {formatDate(project.date)}
             </p>
             <div className="flex-1">
@@ -93,11 +93,11 @@ export default function Projects() {
                 </div>
               </div>
 
-              <p className="text-sm leading-relaxed mb-2 text-muted-foreground">
+              <p className="text-sm leading-relaxed mb-2">
                 {parseMarkdownLinks(project.description)}
               </p>
 
-              <div className="space-y-1 text-xs text-muted-foreground">
+              <div className="space-y-1 text-xs">
                 {project.hackathon && (
                   <p>🚀 Submitted to {parseMarkdownLinks(project.hackathon)}</p>
                 )}

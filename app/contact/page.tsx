@@ -4,11 +4,8 @@ export default function Contact() {
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">Contact</h1>
       <div className="space-y-8">
         <div className="prose prose-neutral dark:prose-invert">
-          <p>
-            Thanks for your interest in reaching out. The best way to get in
-            touch with me is by emailing:
-          </p>
-          <p className="font-mono text-sm px-3 py-2 rounded bg-muted">
+          <p className="!mb-1">Email me at:</p>
+          <p className="font-mono text-sm px-3 py-2 !mt-0 rounded bg-muted">
             <strong>
               amazansk{" "}
               <span className="idk-if-separating-like-this-thwarts-email-scrapers-but-maybe-ill-get-less-spam-this-way">
