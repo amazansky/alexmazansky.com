@@ -1,4 +1,9 @@
-import { formatDate, getBlogPosts, getDateParts } from "app/posts/utils";
+import {
+  formatDate,
+  getBlogPosts,
+  getDateParts,
+  parsePublishedDate,
+} from "app/posts/utils";
 import A from "./A";
 
 export function BlogPosts() {
@@ -7,14 +12,11 @@ export function BlogPosts() {
   return (
     <div>
       {allBlogs
-        .sort((a, b) => {
-          if (
-            new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
-          ) {
-            return -1;
-          }
-          return 1;
-        })
+        .sort(
+          (a, b) =>
+            parsePublishedDate(b.metadata.publishedAt).getTime() -
+            parsePublishedDate(a.metadata.publishedAt).getTime()
+        )
         .map((post) => {
           const { year, month, day } = getDateParts(post.metadata.publishedAt);
           const url = `/posts/${year}/${month}/${day}/${post.slug}`;

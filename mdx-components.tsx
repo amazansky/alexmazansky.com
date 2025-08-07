@@ -1,11 +1,8 @@
-import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
-import remarkGfm from "remark-gfm";
 import { highlight } from "sugar-high";
-import { EmergentAttendeeReferralChart } from "../posts/(components)/AttendeeReferralChart";
-import A from "./A";
+import A from "./app/components/A";
+import { EmergentAttendeeReferralChart } from "./app/posts/(components)/AttendeeReferralChart";
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -71,30 +68,21 @@ function createHeading(level) {
   return Heading;
 }
 
-let components = {
-  h1: createHeading(1),
-  h2: createHeading(2),
-  h3: createHeading(3),
-  h4: createHeading(4),
-  h5: createHeading(5),
-  h6: createHeading(6),
-  Image: RoundedImage,
-  a: A,
-  code: Code,
-  Table,
-  AttendeeReferralChart: EmergentAttendeeReferralChart,
-};
-
-export function CustomMDX(props) {
-  return (
-    <MDXRemote
-      {...props}
-      components={{ ...components, ...(props.components || {}) }}
-      options={{
-        mdxOptions: {
-          remarkPlugins: [remarkGfm],
-        },
-      }}
-    />
-  );
+export function useMDXComponents(
+  components: { [key: string]: React.ComponentType<any> } = {}
+) {
+  return {
+    h1: createHeading(1),
+    h2: createHeading(2),
+    h3: createHeading(3),
+    h4: createHeading(4),
+    h5: createHeading(5),
+    h6: createHeading(6),
+    Image: RoundedImage,
+    a: A,
+    code: Code,
+    Table,
+    AttendeeReferralChart: EmergentAttendeeReferralChart,
+    ...components,
+  };
 }

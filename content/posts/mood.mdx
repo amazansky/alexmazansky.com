@@ -1,10 +1,9 @@
----
-title: Making a mood tracker based on my music preferences
-layout: post
-note: A version of this post was originally published in the Winter 2021 edition of <em>Noteworthy</em>, HCHS's music magazine.
-publishedAt: 2021-03-09
+export const metadata = {
+  title: "Making a mood tracker based on my music preferences",
+  publishedAt: "2021-03-09",
+}
 
----
+***A version of this post was originally published in the Winter 2021 edition of <em>Noteworthy</em>, HCHS's music magazine.***
 
 Over a period of three months from roughly September to December 2020, as the second wave of the pandemic was hitting the United States in full force, I wanted to find some way to catalog my mood over time. Perhaps I could look back on it in the far-away future and gain a window into the hazy memories of a pandemic whose effects had (hopefully) been long relegated to the annals of history. But instead of using a journal or other traditional mood tracker to capture my emotional state during this time, I decided to make a playlist on Spotify.
 
@@ -16,14 +15,8 @@ The last thing to understand is the United States Top 50 playlist. Every day, Sp
 
 With all that said, here are the results of my mood-tracking efforts:
 
-<div class="columns is-desktop">
-    <div class="column">
-        <iframe width="100%" height="500rem" frameborder="0" scrolling="no" src="//plotly.com/~am4z/3.embed?showlink=false"></iframe>
-    </div>
-    <div class="column">
-        <iframe width="100%" height="500rem" frameborder="0" scrolling="no" src="//plotly.com/~am4z/1.embed?showlink=false"></iframe>
-    </div>
-</div>
+<iframe width="100%" height="500rem" frameBorder="0" scrolling="no" src="//plotly.com/~am4z/3.embed?showlink=false"></iframe>
+<iframe width="100%" height="500rem" frameBorder="0" scrolling="no" src="//plotly.com/~am4z/1.embed?showlink=false"></iframe>
 
 These graphs may feel a bit overwhelming at first, so let me break it down. Using the first graph as an example, the blue line labeled "my songs" represents Spotify's energy value for each day's song on my playlist. An energy value close to 0 represents low dynamic range, slow tempo, quiet volume, and an all-around "calm" feel. On the opposite end, an energy value close to 100 represents fast, loud music with an all-around feel of "high-energy." Next, the three gray lines represent the 25th, 50th (median), and 75th percentile energy values of the US Top 50 every day. By hovering over any given day in the graph, you can see the energy value of the song I picked that day as well as the aforementioned percentile energy values of the songs on the Top 50 that day.
 
@@ -37,14 +30,8 @@ Turning away from the Top 50 and looking at the song choices on my own playlist,
 
 But while it may be harder to find trends by simply looking at my songs over time, it's certainly still possible by organizing the data in a slightly different manner. One such option would be to group the song choices by weekday:
 
-<div class="columns is-desktop">
-    <div class="column">
-        <iframe width="100%" height="500px" frameborder="0" scrolling="no" src="//plotly.com/~am4z/7.embed?showlink=false"></iframe>
-    </div>
-    <div class="column">
-        <iframe width="100%" height="500px" frameborder="0" scrolling="no" src="//plotly.com/~am4z/5.embed?showlink=false"></iframe>
-    </div>
-</div>
+<iframe width="100%" height="500px" frameBorder="0" scrolling="no" src="//plotly.com/~am4z/7.embed?showlink=false"></iframe>
+<iframe width="100%" height="500px" frameBorder="0" scrolling="no" src="//plotly.com/~am4z/5.embed?showlink=false"></iframe>
 
 By looking at the data this way,[^5] some interesting trends emerge in the energy and mood values. For both metrics, Wednesdays had both the lowest overall song and the lowest median (by a sizable margin, in the case of mood). Interestingly, Fridays had rather small interquartile ranges on both metrics, suggesting that the type of music I enjoy on Fridays doesn't vary much: it's pretty low in energy but pretty happy. It's likely no coincidence that this captures exactly how I feel on Fridays. Another (less expected?) trend can be seen on Thursdays, which have the highest interquartile range and the highest median in both energy and mood.
 

@@ -1,17 +1,20 @@
 import { NAME } from "app/copywriting";
-import { getBlogPosts, getDateParts } from "app/posts/utils";
+import {
+  getBlogPosts,
+  getDateParts,
+  parsePublishedDate,
+} from "app/posts/utils";
 import { baseUrl } from "app/sitemap";
 
 export async function GET() {
   let allBlogs = await getBlogPosts();
 
   const itemsXml = allBlogs
-    .sort((a, b) => {
-      if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
-        return -1;
-      }
-      return 1;
-    })
+    .sort(
+      (a, b) =>
+        parsePublishedDate(b.metadata.publishedAt).getTime() -
+        parsePublishedDate(a.metadata.publishedAt).getTime()
+    )
     .map((post) => {
       const { year, month, day } = getDateParts(post.metadata.publishedAt);
       const url = `${baseUrl}/posts/${year}/${month}/${day}/${post.slug}`;
@@ -20,7 +23,7 @@ export async function GET() {
           <title>${post.metadata.title}</title>
           <link>${url}</link>
           <description>${post.metadata.subtitle || ""}</description>
-          <pubDate>${new Date(
+          <pubDate>${parsePublishedDate(
             post.metadata.publishedAt
           ).toUTCString()}</pubDate>
         </item>`;

@@ -1,132 +1,144 @@
-import { CustomMDX } from "app/components/mdx";
-import { NAME } from "app/copywriting";
-import { formatDate, getBlogPosts, getDateParts } from "app/posts/utils";
-import { baseUrl } from "app/sitemap";
+import fs from "fs";
 import { notFound } from "next/navigation";
+import path from "path";
+import { NAME } from "../../../../../copywriting";
+import { baseUrl } from "../../../../../sitemap";
+import {
+  formatDate,
+  getBlogPosts,
+  getPostMetadata,
+  Metadata,
+} from "../../../../utils";
 
-export async function generateStaticParams() {
-  let posts = getBlogPosts();
-
-  return posts.map((post) => {
-    const { year, month, day } = getDateParts(post.metadata.publishedAt);
-
-    return {
-      year,
-      month,
-      day,
-      slug: post.slug,
-    };
-  });
+interface PostPageProps {
+  params: Promise<{
+    year: string;
+    month: string;
+    day: string;
+    slug: string;
+  }>;
 }
 
-export function generateMetadata({ params }) {
-  let post = getBlogPosts().find((post) => {
-    const { year, month, day } = getDateParts(post.metadata.publishedAt);
+export async function generateStaticParams() {
+  const posts = getBlogPosts();
 
-    return (
-      post.slug === params.slug &&
-      year === params.year &&
-      month === params.month &&
-      day === params.day
-    );
-  });
+  return posts.map((post) => ({
+    year: post.year,
+    month: post.month,
+    day: post.day,
+    slug: post.slug,
+  }));
+}
 
-  if (!post) {
-    return;
+export async function generateMetadata({ params }: PostPageProps) {
+  const { year, month, day, slug } = await params;
+
+  const filename = `${slug}.mdx`;
+  const filePath = path.join(process.cwd(), "content", "posts", filename);
+
+  if (!fs.existsSync(filePath)) {
+    return {
+      title: "Post Not Found",
+    };
   }
 
-  let {
-    title,
-    publishedAt: publishedTime,
-    subtitle: description,
-    image,
-  } = post.metadata;
-  let ogImage = image
-    ? image
-    : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
+  const metadata = getPostMetadata(filePath);
 
-  const { year, month, day } = getDateParts(post.metadata.publishedAt);
+  if (!metadata) {
+    return {
+      title: "Post Not Found",
+    };
+  }
 
   return {
-    title,
-    description,
+    title: metadata.title,
+    description: metadata.subtitle,
     openGraph: {
-      title,
-      description,
+      title: metadata.title,
+      description: metadata.subtitle,
       type: "article",
-      publishedTime,
-      url: `${baseUrl}/posts/${year}/${month}/${day}/${post.slug}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
+      publishedTime: metadata.publishedAt,
+      url: `${baseUrl}/posts/${year}/${month}/${day}/${slug}`,
     },
   };
 }
 
-export default function Blog({ params }) {
-  let post = getBlogPosts().find((post) => {
-    const { year, month, day } = getDateParts(post.metadata.publishedAt);
+export default async function PostPage({ params }: PostPageProps) {
+  const { year, month, day, slug } = await params;
 
-    return (
-      post.slug === params.slug &&
-      year === params.year &&
-      month === params.month &&
-      day === params.day
-    );
-  });
+  // Use slug directly as filename (with .mdx extension)
+  const filename = `${slug}.mdx`;
+  const filePath = path.join(process.cwd(), "content", "posts", filename);
 
-  if (!post) {
+  if (!fs.existsSync(filePath)) {
     notFound();
   }
 
-  const { year, month, day } = getDateParts(post.metadata.publishedAt);
+  let mdxFile: React.ComponentType | null = null;
+  let metadata: Metadata | null = null;
+
+  try {
+    // Dynamic import of the MDX file
+    const module = await import(`../../../../../../content/posts/${filename}`);
+    mdxFile = module.default;
+
+    // Extract metadata from file
+    metadata = getPostMetadata(filePath);
+  } catch (error) {
+    console.warn(`Error importing ${filename}:`, error);
+    notFound();
+  }
+
+  if (!mdxFile) {
+    notFound();
+  }
+
+  const PostComponent = mdxFile;
 
   return (
     <section>
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            headline: post.metadata.title,
-            datePublished: post.metadata.publishedAt,
-            dateModified: post.metadata.publishedAt,
-            description: post.metadata.subtitle,
-            image: post.metadata.image
-              ? `${baseUrl}${post.metadata.image}`
-              : `/og?title=${encodeURIComponent(post.metadata.title)}`,
-            url: `${baseUrl}/posts/${year}/${month}/${day}/${post.slug}`,
-            author: {
-              "@type": "Person",
-              name: NAME,
-            },
-          }),
-        }}
-      />
-      <h1 className="title font-semibold text-2xl tracking-tighter">
-        {post.metadata.title}
-      </h1>
-      {post.metadata.subtitle && (
-        <p className="text-sm text-muted-foreground">
-          <em>{post.metadata.subtitle}</em>
-        </p>
+      {metadata && (
+        <>
+          <script
+            type="application/ld+json"
+            suppressHydrationWarning
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "BlogPosting",
+                headline: metadata.title,
+                datePublished: metadata.publishedAt,
+                dateModified: metadata.publishedAt,
+                description: metadata.subtitle,
+                image: metadata.image
+                  ? `${baseUrl}${metadata.image}`
+                  : `/og?title=${encodeURIComponent(metadata.title)}`,
+                url: `${baseUrl}/posts/${year}/${month}/${day}/${slug}`,
+                author: {
+                  "@type": "Person",
+                  name: NAME,
+                },
+              }),
+            }}
+          />
+          <h1 className="title font-semibold text-2xl tracking-tighter">
+            {metadata.title}
+          </h1>
+          {metadata.subtitle && (
+            <p className="text-sm text-muted-foreground">
+              <em>{metadata.subtitle}</em>
+            </p>
+          )}
+          <div className="flex justify-between items-center mt-2 mb-8 text-sm">
+            <p className="text-sm">{formatDate(metadata.publishedAt)}</p>
+          </div>
+          <article className="prose">
+            <PostComponent />
+          </article>
+        </>
       )}
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <p className="text-sm">{formatDate(post.metadata.publishedAt)}</p>
-      </div>
-      <article className="prose">
-        <CustomMDX source={post.content} />
-      </article>
     </section>
   );
 }
+
+export const dynamicParams = false;
