@@ -1,5 +1,18 @@
 [
   {
+    "name": "Where2Meet",
+    "description": "Find the best spots to meet halfway between you and your friends by public transit.",
+    "technologies": ["TypeScript"],
+    "links": [
+      {
+        "name": "Try It",
+        "url": "https://www.where2meet.fyi/",
+        "type": "primary"
+      }
+    ],
+    "date": "2025-07-26"
+  },
+  {
     "name": "MemoReplay",
     "description": "Web app designed to help dementia patients recall events in their past through questions and prompts about the photos in their camera roll.",
     "technologies": ["TypeScript"],
@@ -58,7 +71,7 @@
         "type": "primary"
       },
       {
-        "name": "Website",
+        "name": "Try It",
         "url": "https://tuneutils.amazansky.com",
         "type": "secondary"
       }
