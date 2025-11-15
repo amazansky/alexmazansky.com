@@ -41,14 +41,14 @@ export function Navbar() {
           className="flex flex-row items-center relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
           id="nav"
         >
-          <div className="flex flex-row space-x-4 pr-10 flex-1">
+          <div className="flex flex-row space-x-3 sm:space-x-4 pr-3 flex-1">
             {Object.entries(navItems).map(([path, { name, bold }]) => {
               return (
                 <A
                   key={path}
                   href={path}
                   className={`transition-all flex items-center relative py-1 ${
-                    bold ? "font-semibold" : ""
+                    bold ? "font-semibold whitespace-nowrap" : ""
                   }`}
                 >
                   {name}
@@ -56,7 +56,7 @@ export function Navbar() {
               );
             })}
           </div>
-          <div className="flex flex-row items-center space-x-4">
+          <div className="flex flex-row items-center space-x-3 sm:space-x-4">
             {socialItems.map((item) => (
               <A
                 key={item.name}
