@@ -58,6 +58,10 @@ function parseMarkdownLinks(text: string): React.ReactNode[] {
   return parts.length > 0 ? parts : [text];
 }
 
+export const metadata = {
+  title: "Projects",
+};
+
 export default function Projects() {
   const projects = projectsData as Project[];
 

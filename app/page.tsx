@@ -1,6 +1,6 @@
 import Image from "next/image";
 import A from "./components/A";
-import { HEADER_1, HEADER_2 } from "./copywriting";
+import { EMAIL, HEADER_1, HEADER_2 } from "./copywriting";
 import work from "./work.json";
 
 export default function Page() {
@@ -42,8 +42,8 @@ export default function Page() {
           languages, singing, or exploring the cities around me.
         </p>
         <p>
-          If anything on this site is of interest, feel free to{" "}
-          <A href="/contact">get in touch.</A>
+          If anything on this site is of interest, feel free to email me at{" "}
+          <A href={`mailto:${EMAIL}`}>{EMAIL}</A>.
         </p>
       </section>
       <h2 className="text-xl mb-4">Work</h2>
