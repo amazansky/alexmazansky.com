@@ -60,22 +60,29 @@ export function extractMetadataFromMDX(content: string): Metadata | null {
     const metadata: Partial<Metadata> = {};
 
     // Extract title
-    const titleMatch = metadataContent.match(/title:\s*["']([^"']+)["']/);
-    if (titleMatch) metadata.title = titleMatch[1];
+    const titleMatch = metadataContent.match(
+      /title:\s*"((?:[^"\\]|\\.)*)"|title:\s*'((?:[^'\\]|\\.)*)'/
+    );
+    if (titleMatch) metadata.title = titleMatch[1] || titleMatch[2];
 
     // Extract subtitle
-    const subtitleMatch = metadataContent.match(/subtitle:\s*["']([^"']+)["']/);
-    if (subtitleMatch) metadata.subtitle = subtitleMatch[1];
+    const subtitleMatch = metadataContent.match(
+      /subtitle:\s*"((?:[^"\\]|\\.)*)"|subtitle:\s*'((?:[^'\\]|\\.)*)'/
+    );
+    if (subtitleMatch) metadata.subtitle = subtitleMatch[1] || subtitleMatch[2];
 
     // Extract publishedAt
     const publishedAtMatch = metadataContent.match(
-      /publishedAt:\s*["']([^"']+)["']/
+      /publishedAt:\s*"((?:[^"\\]|\\.)*)"|publishedAt:\s*'((?:[^'\\]|\\.)*)'/
     );
-    if (publishedAtMatch) metadata.publishedAt = publishedAtMatch[1];
+    if (publishedAtMatch)
+      metadata.publishedAt = publishedAtMatch[1] || publishedAtMatch[2];
 
     // Extract image
-    const imageMatch = metadataContent.match(/image:\s*["']([^"']+)["']/);
-    if (imageMatch) metadata.image = imageMatch[1];
+    const imageMatch = metadataContent.match(
+      /image:\s*"((?:[^"\\]|\\.)*)"|image:\s*'((?:[^'\\]|\\.)*)'/
+    );
+    if (imageMatch) metadata.image = imageMatch[1] || imageMatch[2];
 
     return metadata as Metadata;
   } catch (error) {
