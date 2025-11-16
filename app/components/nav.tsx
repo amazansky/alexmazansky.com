@@ -2,7 +2,7 @@
 
 import { NAME } from "app/copywriting";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import A, { ForceExternal } from "./A";
+import A from "./A";
 import { ThemeToggle } from "./theme-toggle";
 
 const navItems = {
@@ -10,12 +10,12 @@ const navItems = {
     name: NAME,
     bold: true,
   },
-  "/posts": {
-    name: "Writing",
-    bold: false,
-  },
   "/projects": {
     name: "Projects",
+    bold: false,
+  },
+  "/posts": {
+    name: "Writing",
     bold: false,
   },
 };
@@ -61,7 +61,7 @@ export function Navbar() {
               <A
                 key={item.name}
                 href={item.href}
-                forceExternal={ForceExternal.Off}
+                supressExternalArrow={true}
                 aria-label={item.name}
                 className="flex items-center py-1"
               >
