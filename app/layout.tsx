@@ -86,9 +86,11 @@ export default function RootLayout({
           disableTransitionOnChange={false}
           storageKey="theme"
         >
-          <main className="flex-auto min-w-0 mt-6 flex flex-col ">
-            <Navbar />
-            {children}
+          <main className="min-w-0 mt-6 flex flex-col h-[90vh]">
+            <div className="flex-1">
+              <Navbar />
+              {children}
+            </div>
             <Footer />
             <Analytics />
             <SpeedInsights />

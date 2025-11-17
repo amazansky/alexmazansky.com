@@ -41,10 +41,6 @@ export default function Page() {
           Offline, you might find me biking, composing music, learning
           languages, singing, or exploring the cities around me.
         </p>
-        <p>
-          If anything on this site is of interest, feel free to email me at{" "}
-          <A href={`mailto:${EMAIL}`}>{EMAIL}</A>.
-        </p>
       </section>
       <h2 className="text-xl mb-4">Work</h2>
       <div className="space-y-1.5 mb-8">
@@ -76,6 +72,11 @@ export default function Page() {
           </div>
         ))}
       </div>
+      <h2 className="text-xl mb-4">Contact</h2>
+      <p>
+        If anything on this site is of interest, feel free to email me at{" "}
+        <A href={`mailto:${EMAIL}`}>{EMAIL}</A>.
+      </p>
     </>
   );
 }

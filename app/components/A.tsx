@@ -46,7 +46,10 @@ export default function A({
     >
       {children}
       {!supressExternalArrow && (
-        <span style={{ userSelect: "none" }} aria-hidden="true">
+        <span
+          style={{ userSelect: "none", whiteSpace: "nowrap" }}
+          aria-hidden="true"
+        >
           {" "}
           ↗
         </span>
