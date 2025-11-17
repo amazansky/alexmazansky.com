@@ -34,6 +34,9 @@ export default function Footer() {
             <li className="pb-2">
               <A href="/posts">Writing</A>
             </li>
+            <li className="pb-2">
+              <A href="/colophon">Colophon</A>
+            </li>
             <li>
               <A href="/rss">RSS</A>
             </li>
