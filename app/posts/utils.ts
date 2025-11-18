@@ -157,10 +157,10 @@ export function formatDate(date: string, includeRelative = false) {
     formattedDate = "Today";
   }
 
-  let fullDate = targetDate.toLocaleString("en-uk", {
-    month: "short",
-    day: "2-digit",
-    year: "numeric",
+  let fullDate = targetDate.toLocaleString("en-us", {
+    month: "numeric",
+    day: "numeric",
+    year: "2-digit",
   });
 
   if (!includeRelative) {

@@ -14,12 +14,16 @@ const inspirations = [
     url: "https://willbarkoff.dev/",
   },
   {
-    name: "Paul Lestz",
-    url: "https://paullestz.com/",
-  },
-  {
     name: "Thomas Gordon",
     url: "https://metaterminal.fyi/",
+  },
+  {
+    name: "Jack Wrenn",
+    url: "https://jack.wrenn.fyi/",
+  },
+  {
+    name: "Paul Lestz",
+    url: "https://paullestz.com/",
   },
   {
     name: "Chloe Qiao",
@@ -55,7 +59,7 @@ export default function Colophon() {
             <A href="https://github.com/amazansky/alexmazansky.com-jekyll/commit/075608064d9ce3aab7a764dcce150b9d6cd1b6f7">
               May 2016
             </A>
-            . Since then, it has been through several major redesigns, most
+            . Since then it has been through several major redesigns, most
             recently in{" "}
             <A href="https://web.archive.org/web/20211211075133/https://amazansky.com/">
               March 2021
@@ -65,8 +69,8 @@ export default function Colophon() {
               October 2024
             </A>
             , with lots of minor tweaks and two domain name changes along the
-            way. The current design was made in July 2025, when I switched from
-            Jekyll to Next.js.
+            way. The current design was made in July 2025, when I switched from{" "}
+            <A href="https://jekyllrb.com/">Jekyll</A> to Next.js.
           </p>
           <p>
             This website's design and content have been inspired over time by
@@ -74,7 +78,11 @@ export default function Colophon() {
             {inspirations.map((inspiration, idx) => {
               return (
                 <>
-                  <A href={inspiration.url} key={idx}>
+                  <A
+                    href={inspiration.url}
+                    key={idx}
+                    className="whitespace-nowrap"
+                  >
                     {inspiration.name}
                   </A>
                   {idx < inspirations.length - 2
