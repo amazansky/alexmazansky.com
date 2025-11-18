@@ -15,7 +15,7 @@ const navItems = {
     bold: false,
   },
   "/posts": {
-    name: "Writing",
+    name: "Thoughts",
     bold: false,
   },
 };

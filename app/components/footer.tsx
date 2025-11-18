@@ -32,7 +32,7 @@ export default function Footer() {
               <A href="/projects">Projects</A>
             </li>
             <li className="pb-2">
-              <A href="/posts">Writing</A>
+              <A href="/posts">Thoughts</A>
             </li>
             <li className="pb-2">
               <A href="/colophon">Colophon</A>
