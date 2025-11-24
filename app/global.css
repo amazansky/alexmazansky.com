@@ -134,19 +134,15 @@ html {
 }
 
 .prose h1 {
-  @apply text-4xl font-medium tracking-tight mt-6 mb-2 text-foreground;
+  @apply text-2xl font-semibold tracking-tight mt-6 mb-2 text-foreground;
 }
 
 .prose h2 {
-  @apply text-xl font-medium tracking-tight mt-6 mb-2 text-foreground;
+  @apply text-xl font-semibold tracking-tight mt-6 mb-2 text-foreground;
 }
 
 .prose h3 {
-  @apply text-xl font-medium tracking-tight mt-6 mb-2 text-foreground;
-}
-
-.prose h4 {
-  @apply text-lg font-medium tracking-tight mt-6 mb-2 text-foreground;
+  @apply text-lg font-semibold tracking-tight mt-6 mb-2 text-foreground;
 }
 
 .prose strong {

@@ -1,5 +1,3 @@
-"use client";
-
 import { NAME } from "app/copywriting";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import A from "./A";
@@ -7,15 +5,15 @@ import { ThemeToggle } from "./theme-toggle";
 
 const navItems = {
   "/": {
-    name: NAME,
-    bold: true,
-  },
-  "/projects": {
-    name: "Projects",
+    name: "Home",
     bold: false,
   },
   "/posts": {
     name: "Thoughts",
+    bold: false,
+  },
+  "/projects": {
+    name: "Projects",
     bold: false,
   },
 };
@@ -37,6 +35,7 @@ export function Navbar() {
   return (
     <aside className="mb-16 tracking-tight">
       <div className="lg:sticky lg:top-20">
+        <p className="text-xl tracking-tight">{NAME}</p>
         <nav
           className="flex flex-row items-center relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
           id="nav"

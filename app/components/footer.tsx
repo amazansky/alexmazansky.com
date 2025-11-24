@@ -29,10 +29,10 @@ export default function Footer() {
               <A href="/">Home</A>
             </li>
             <li>
-              <A href="/projects">Projects</A>
+              <A href="/posts">Thoughts</A>
             </li>
             <li className="pb-2">
-              <A href="/posts">Thoughts</A>
+              <A href="/projects">Projects</A>
             </li>
             <li className="pb-2">
               <A href="/colophon">Colophon</A>
