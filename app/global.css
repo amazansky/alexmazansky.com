@@ -157,6 +157,10 @@ html {
   @apply list-decimal pl-6;
 }
 
+.prose blockquote {
+  @apply border-l-2 border-muted-border pl-5;
+}
+
 pre::-webkit-scrollbar {
   display: none;
 }
