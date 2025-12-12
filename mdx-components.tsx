@@ -3,6 +3,10 @@ import React from "react";
 import { highlight } from "sugar-high";
 import A from "./app/components/A";
 import { EmergentAttendeeReferralChart } from "./app/posts/(components)/AttendeeReferralChart";
+import {
+  GuestsOverTimeChart,
+  LeaderboardChart,
+} from "./app/posts/(components)/RattyChallengeCharts";
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -24,10 +28,6 @@ function Table({ data }) {
       <tbody>{rows}</tbody>
     </table>
   );
-}
-
-function RoundedImage(props) {
-  return <Image alt={props.alt} className="rounded-lg" {...props} />;
 }
 
 function Code({ children, ...props }) {
@@ -78,11 +78,13 @@ export function useMDXComponents(
     h4: createHeading(4),
     h5: createHeading(5),
     h6: createHeading(6),
-    Image: RoundedImage,
+    Image,
     a: A,
     code: Code,
     Table,
     AttendeeReferralChart: EmergentAttendeeReferralChart,
+    GuestsOverTimeChart,
+    LeaderboardChart,
     ...components,
   };
 }
