@@ -1,4 +1,5 @@
 import A from "app/components/A";
+import { Fragment } from "react";
 
 export const metadata = {
   title: "Colophon",
@@ -76,13 +77,10 @@ export default function Colophon() {
             This website's design and content have been inspired over time by
             the works of{" "}
             {inspirations.map((inspiration, idx) => {
+              console.log(idx);
               return (
-                <>
-                  <A
-                    href={inspiration.url}
-                    key={idx}
-                    className="whitespace-nowrap"
-                  >
+                <Fragment key={idx}>
+                  <A href={inspiration.url} className="whitespace-nowrap">
                     {inspiration.name}
                   </A>
                   {idx < inspirations.length - 2
@@ -90,7 +88,7 @@ export default function Colophon() {
                     : idx === inspirations.length - 2
                     ? ", and "
                     : ""}
-                </>
+                </Fragment>
               );
             })}
             , among many others.
