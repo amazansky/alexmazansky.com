@@ -161,6 +161,10 @@ html {
   @apply border-l-2 border-muted-border pl-5;
 }
 
+.prose .dinkus {
+  @apply text-center text-foreground text-lg tracking-widest select-none;
+}
+
 pre::-webkit-scrollbar {
   display: none;
 }

@@ -68,6 +68,14 @@ function createHeading(level) {
   return Heading;
 }
 
+function Dinkus() {
+  return (
+    <div className="dinkus" aria-label="Section break">
+      * * *
+    </div>
+  );
+}
+
 export function useMDXComponents(
   components: { [key: string]: React.ComponentType<any> } = {}
 ) {
@@ -81,6 +89,7 @@ export function useMDXComponents(
     Image,
     a: A,
     code: Code,
+    hr: Dinkus,
     Table,
     AttendeeReferralChart: EmergentAttendeeReferralChart,
     GuestsOverTimeChart,
