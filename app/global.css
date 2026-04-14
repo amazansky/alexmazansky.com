@@ -10,7 +10,7 @@
   --color-solarized-base1: #93a1a1;
   --color-solarized-base2: #eee8d5;
   --color-solarized-base3: #fdf6e3;
-  
+
   /* Solarized accent colors */
   --color-solarized-yellow: #b58900;
   --color-solarized-orange: #cb4b16;
@@ -23,20 +23,22 @@
 
   /* Light mode colors */
   --color-background: var(--color-solarized-base3);
-  --color-foreground: var(--color-solarized-base01); /* in the original theme, this is base00 - changed for readability */
-  --color-muted: var(--color-solarized-base2);
-  --color-muted-border: var(--color-solarized-base1);
-  --color-muted-foreground: var(--color-solarized-base0);
-  --color-border: var(--color-solarized-base2);
-  
+  /* in the original theme, this is base00 - changed for readability */
+  --color-foreground: var(--color-solarized-base02);
+  /* changed all of these one click darker for readability */
+  --color-muted: var(--color-solarized-base1);
+  --color-muted-border: var(--color-solarized-base0);
+  --color-muted-foreground: var(--color-solarized-base00);
+  --color-border: var(--color-solarized-base1);
+
   /* Primary color scheme using solarized blue */
   --color-primary: var(--color-solarized-blue);
   --color-primary-foreground: var(--color-solarized-base3);
-  
+
   /* Accent color using solarized cyan */
   --color-accent: var(--color-solarized-cyan);
   --color-accent-foreground: var(--color-solarized-base03);
-  
+
   /* Destructive using solarized red */
   --color-destructive: var(--color-solarized-red);
   --color-destructive-foreground: var(--color-solarized-base3);
@@ -45,11 +47,13 @@
 /* Dark mode colors */
 .dark {
   --color-background: var(--color-solarized-base03);
-  --color-foreground: var(--color-solarized-base1); /* in the original theme, this is base0 - changed for readability */
-  --color-muted: var(--color-solarized-base02);
-  --color-muted-border: var(--color-solarized-base01);
-  --color-muted-foreground: var(--color-solarized-base00);
-  --color-border: var(--color-solarized-base02);
+  /* in the original theme, this is base0 - changed for readability */
+  --color-foreground: var(--color-solarized-base2);
+  /* changed all of these one click lighter for readability */
+  --color-muted: var(--color-solarized-base01);
+  --color-muted-border: var(--color-solarized-base00);
+  --color-muted-foreground: var(--color-solarized-base0);
+  --color-border: var(--color-solarized-base01);
 }
 
 /* Syntax highlighting variables */
@@ -102,7 +106,7 @@ html {
   content: "#";
 }
 
-.prose *:hover > .anchor {
+.prose *:hover>.anchor {
   @apply visible;
 }
 
@@ -170,8 +174,10 @@ pre::-webkit-scrollbar {
 }
 
 pre {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  /* IE and Edge */
+  -ms-overflow-style: none;
+  /* Firefox */
+  scrollbar-width: none;
 }
 
 /* Remove Safari input shadow on mobile */

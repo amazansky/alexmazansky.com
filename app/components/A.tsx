@@ -15,7 +15,7 @@ export default function A({
 }: AProps) {
   // Base classes for the growing underline effect
   const baseClasses =
-    "text-primary hover:text-accent transition-all relative before:absolute before:bottom-0 before:left-0 before:w-0 before:h-px before:bg-current before:transition-all before:duration-300 hover:before:w-full";
+    "text-primary font-medium hover:text-accent transition-all relative before:absolute before:bottom-0 before:left-0 before:w-0 before:h-px before:bg-current before:transition-all before:duration-300 hover:before:w-full";
 
   // Check if it's an internal link
   if (href.startsWith("/")) {
