@@ -1,5 +1,18 @@
 [
   {
+    "name": "Syllabussin",
+    "description": "Challenged myself to make $1 of software revenue as quickly as possible. Built in public and completed the challenge in 5 days, making an app that converts deadlines from your class syllabi into a custom Google Calendar.",
+    "technologies": ["TypeScript"],
+    "links": [
+      {
+        "name": "Try It",
+        "url": "https://www.syllabussin.com/",
+        "type": "primary"
+      }
+    ],
+    "date": "2026-03-11"
+  },
+  {
     "name": "Where2Meet",
     "description": "Find the best spots to meet halfway between you and your friends by public transit.",
     "technologies": ["TypeScript"],
