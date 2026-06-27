@@ -4,6 +4,12 @@ import { highlight } from "sugar-high";
 import A from "./app/components/A";
 import { EmergentAttendeeReferralChart } from "./app/posts/(components)/AttendeeReferralChart";
 import {
+  MoodEnergyByWeekdayChart,
+  MoodEnergyOverTimeChart,
+  MoodValenceByWeekdayChart,
+  MoodValenceOverTimeChart,
+} from "./app/posts/(components)/MoodCharts";
+import {
   GuestsOverTimeChart,
   LeaderboardChart,
 } from "./app/posts/(components)/RattyChallengeCharts";
@@ -94,6 +100,10 @@ export function useMDXComponents(
     AttendeeReferralChart: EmergentAttendeeReferralChart,
     GuestsOverTimeChart,
     LeaderboardChart,
+    MoodEnergyOverTimeChart,
+    MoodValenceOverTimeChart,
+    MoodEnergyByWeekdayChart,
+    MoodValenceByWeekdayChart,
     ...components,
   };
 }
