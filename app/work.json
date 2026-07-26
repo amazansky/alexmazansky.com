@@ -1,5 +1,13 @@
 [
   {
+    "name": "LangChain",
+    "title": "Engineering, Sales",
+    "start": "2026-06",
+    "end": "present",
+    "imageUrl": "langchain.png",
+    "link": "https://www.langchain.com"
+  },
+  {
     "name": "Fresco (YC F24)",
     "title": "Engineering",
     "start": "2025-06",

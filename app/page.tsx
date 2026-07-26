@@ -1,11 +1,16 @@
 import Image from "next/image";
 import A from "./components/A";
-import { EMAIL, HEADER_1, HEADER_2 } from "./copywriting";
+import { EMAIL, HEADER_1 } from "./copywriting";
 import work from "./work.json";
 
 export default function Page() {
   const formatWorkDate = (start: string, end: string) => {
     const startYear = start.slice(0, 4);
+
+    if (end == "present") {
+      return `${startYear}-present`;
+    }
+
     const endYear = end.slice(0, 4);
 
     if (startYear === endYear) {
@@ -16,30 +21,22 @@ export default function Page() {
 
   return (
     <>
-      <h1 className="mb-0 text-3xl font-semibold tracking-tighter">
+      <h1 className="mb-1 text-3xl font-semibold tracking-tighter">
         {HEADER_1}
       </h1>
-      <h2 className="mb-4 text-lg">{HEADER_2}</h2>
       <section className="prose mb-6">
         <p>
-          I discovered programming by accident in elementary school and have
-          been{" "}
-          <strong>
-            using technology to solve problems and address big questions
-          </strong>{" "}
-          ever since. I've automated 150+ hours of work by writing chatbots,
-          visualized social media data to generate leads for an investigation,
-          and taught 10 middle schoolers to code.
+          I'm currently a Deployed Engineer at LangChain, where I help companies
+          make their AI agents more reliable and scalable.
         </p>
         <p>
-          I'm currently a senior at Brown University studying computer science
-          and entrepreneurship. While at school, I've interned at two startups
-          and organized Brown's first-ever{" "}
+          I graduated from Brown University in computer science. During school,
+          I interned at two startups and organized Brown's first-ever{" "}
           <A href="https://emergentaiconference.com">AI venture conference</A>.
         </p>
         <p>
-          Offline, you might find me biking, composing music, learning
-          languages, singing, or exploring the cities around me.
+          Offline, you might find me biking, playing music, meeting new people,
+          or exploring the cities around me.
         </p>
       </section>
       <h2 className="text-xl mb-4">Work</h2>

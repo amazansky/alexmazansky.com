@@ -1,4 +1,4 @@
-import { EMAIL, HEADER_1, HEADER_2 } from "app/copywriting";
+import { EMAIL, HEADER_1 } from "app/copywriting";
 import A from "./A";
 
 export default function Footer() {
@@ -9,7 +9,6 @@ export default function Footer() {
         {/* Left column */}
         <div className="flex-1">
           <h3 className="text-lg font-semibold tracking-tight">{HEADER_1}</h3>
-          <p className="text-muted-foreground tracking-tight">{HEADER_2}</p>
           <ul className="mt-2">
             <li className="pb-2">
               <A href={`mailto:${EMAIL}`}>{EMAIL}</A>
